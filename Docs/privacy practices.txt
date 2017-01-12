@@ -1,0 +1,5 @@
+Privacy Practices
+
+Qlumi is dedicated to keeping your privacy private. We do not ask you to create usernames in our app. When our Qlumi app communicates with our servers, it therefore does this anonymously using an anonymous user ID system. We do not capture information about your phone number.
+
+Since all of the information we store on our servers is anonymous, we do anonymous assessment of our database information. We may share this anonymous information with third parties. Even when our system directly and purposefully communicates a message to your specific phone, it is handled without any identifiable information about you. Any communication through our servers between the Qlumi app with the server and vice versa is, therefore, anonymous. We do not store in our servers any internet message chat data. As we said, your privacy is a huge concern of ours.

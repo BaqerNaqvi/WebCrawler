@@ -1,0 +1,131 @@
+﻿body {
+            background: #fff;
+        }
+
+       
+
+        .heading {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            font-family: Arial;
+            width: 23%;
+            margin-left: 1%;
+            text-align: center;
+            border-bottom: 1px solid black;
+            display: inline-block;
+            padding: 15px 0px;
+            font-weight: bold;
+        }
+
+        .mWraper {
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .logo {
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 12px;
+            margin-bottom:12px;
+        }
+
+
+        .ManageWords {
+            width:50%;
+            float:left;
+            display:table;
+            position:relative;
+            
+            text-align:center;
+        }
+        .ManageWords1 {
+            width:100%;
+            float:left;
+            display:table;
+            position:relative;
+            
+            text-align:center;
+        }
+        .containerLeft {
+            border-right: 1px solid gray;
+        }
+        .containerRight {
+            width:49%;
+        }
+        .gen {
+            width:100%;
+            float:left;
+            margin:5px 0px;
+            text-align:center;
+        }
+        .buttonSetting {
+            width:350px;
+            margin:0 auto;
+            display:table;
+        }
+        .WordContainer {
+            float:left;
+            width:100%;
+
+
+        }
+        .panel-body {
+            padding: 0px !important; 
+        }
+        .word {
+            position: relative;
+            margin:0 auto;
+            border: 0;
+            padding: 3px;
+            font: normal 12px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+            color: #fff;
+            background: #337ab7;
+            float:left;
+            width:100%;
+        }
+        .removeWord {
+            position: relative;
+            margin:0 auto;
+            width:100%;
+            border: 0;
+            padding: 3px;
+            cursor: pointer;
+            font: normal 12px/20px 'lucida sans', 'trebuchet MS', 'Tahoma';
+            color: #fff;
+            background: #c42f2f;
+            float:left;
+        }
+        .removeWord:hover {
+            background: #e54040;
+        }
+
+        .catButton {
+           text-decoration:none;
+           font-family:Arial;
+           font-size:13px;
+           font-weight:bold;
+           color:#fff;
+           cursor:pointer;
+           text-transform:uppercase;
+           
+
+        }
+        .catButton:hover {
+            color:#02668e;
+            text-decoration:underline;
+        }
+        @media screen and (max-width: 758px) {
+
+            .WordContainer {
+                float:left;
+                padding:10px;
+                width:43%;
+            }
+        }
+
+        .breadcrumb>li+li:before {
+            content: "" !important;
+        }
+

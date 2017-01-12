@@ -1,0 +1,2027 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="qlumi_testModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="qlumi_testModelStoreContainer">
+          <EntitySet Name="AdInfo" EntityType="qlumi_testModel.Store.AdInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="admin" EntityType="qlumi_testModel.Store.admin" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AdProgress" EntityType="qlumi_testModel.Store.AdProgress" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AdType" EntityType="qlumi_testModel.Store.AdType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AppCategory" EntityType="qlumi_testModel.Store.AppCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BidType" EntityType="qlumi_testModel.Store.BidType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BillingHistory" EntityType="qlumi_testModel.Store.BillingHistory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BillingInfo" EntityType="qlumi_testModel.Store.BillingInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="categories" EntityType="qlumi_testModel.Store.categories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ChatHistory" EntityType="qlumi_testModel.Store.ChatHistory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="crawler" EntityType="qlumi_testModel.Store.crawler" store:Type="Tables" store:Schema="dbo" store:Name="crawler">
+            <DefiningQuery>SELECT 
+      [crawler].[Id] AS [Id], 
+      [crawler].[placeId] AS [placeId], 
+      [crawler].[placeWebsite] AS [placeWebsite], 
+      [crawler].[deviceId] AS [deviceId], 
+      [crawler].[deviceLati] AS [deviceLati], 
+      [crawler].[deviceLongi] AS [deviceLongi], 
+      [crawler].[htmlData] AS [htmlData], 
+      [crawler].[createdAt] AS [createdAt], 
+      [crawler].[googleData] AS [googleData]
+      FROM [dbo].[crawler] AS [crawler]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="excludedWord" EntityType="qlumi_testModel.Store.excludedWord" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="gpsNotes" EntityType="qlumi_testModel.Store.gpsNotes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="includedWord" EntityType="qlumi_testModel.Store.includedWord" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="meetingNotes" EntityType="qlumi_testModel.Store.meetingNotes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="messageCount" EntityType="qlumi_testModel.Store.messageCount" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProfileColor" EntityType="qlumi_testModel.Store.ProfileColor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SettingProfile" EntityType="qlumi_testModel.Store.SettingProfile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SubCategory" EntityType="qlumi_testModel.Store.SubCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserContact" EntityType="qlumi_testModel.Store.UserContact" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserGpsNotes" EntityType="qlumi_testModel.Store.UserGpsNotes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserInfo" EntityType="qlumi_testModel.Store.UserInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserInterest" EntityType="qlumi_testModel.Store.UserInterest" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="userLocation" EntityType="qlumi_testModel.Store.userLocation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Vendor" EntityType="qlumi_testModel.Store.Vendor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VendorInterest" EntityType="qlumi_testModel.Store.VendorInterest" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VendorNotes" EntityType="qlumi_testModel.Store.VendorNotes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VendorProfile" EntityType="qlumi_testModel.Store.VendorProfile" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__AdInfo__adTypeId__6754599E" Association="qlumi_testModel.Store.FK__AdInfo__adTypeId__6754599E">
+            <End Role="AdType" EntitySet="AdType" />
+            <End Role="AdInfo" EntitySet="AdInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdInfo__bidTypeI__68487DD7" Association="qlumi_testModel.Store.FK__AdInfo__bidTypeI__68487DD7">
+            <End Role="BidType" EntitySet="BidType" />
+            <End Role="AdInfo" EntitySet="AdInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdInfo__category__6A30C649" Association="qlumi_testModel.Store.FK__AdInfo__category__6A30C649">
+            <End Role="categories" EntitySet="categories" />
+            <End Role="AdInfo" EntitySet="AdInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdInfo__interest__6B24EA82" Association="qlumi_testModel.Store.FK__AdInfo__interest__6B24EA82">
+            <End Role="SubCategory" EntitySet="SubCategory" />
+            <End Role="AdInfo" EntitySet="AdInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdInfo__vendorId__693CA210" Association="qlumi_testModel.Store.FK__AdInfo__vendorId__693CA210">
+            <End Role="Vendor" EntitySet="Vendor" />
+            <End Role="AdInfo" EntitySet="AdInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdProgres__vendo__06CD04F7" Association="qlumi_testModel.Store.FK__AdProgres__vendo__06CD04F7">
+            <End Role="Vendor" EntitySet="Vendor" />
+            <End Role="AdProgress" EntitySet="AdProgress" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillingHi__vendo__160F4887" Association="qlumi_testModel.Store.FK__BillingHi__vendo__160F4887">
+            <End Role="Vendor" EntitySet="Vendor" />
+            <End Role="BillingHistory" EntitySet="BillingHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillingIn__vendo__09A971A2" Association="qlumi_testModel.Store.FK__BillingIn__vendo__09A971A2">
+            <End Role="Vendor" EntitySet="Vendor" />
+            <End Role="BillingInfo" EntitySet="BillingInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChatHistory__sId__35BCFE0A" Association="qlumi_testModel.Store.FK__ChatHistory__sId__35BCFE0A">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="ChatHistory" EntitySet="ChatHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChatHistory__sId__36B12243" Association="qlumi_testModel.Store.FK__ChatHistory__sId__36B12243">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="ChatHistory" EntitySet="ChatHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__messageCo__userI__37A5467C" Association="qlumi_testModel.Store.FK__messageCo__userI__37A5467C">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="messageCount" EntitySet="messageCount" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SettingPr__userI__38996AB5" Association="qlumi_testModel.Store.FK__SettingPr__userI__38996AB5">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="SettingProfile" EntitySet="SettingProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SubCatego__categ__398D8EEE" Association="qlumi_testModel.Store.FK__SubCatego__categ__398D8EEE">
+            <End Role="AppCategory" EntitySet="AppCategory" />
+            <End Role="SubCategory" EntitySet="SubCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserConta__userI__3A81B327" Association="qlumi_testModel.Store.FK__UserConta__userI__3A81B327">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="UserContact" EntitySet="UserContact" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserGpsNo__sende__3B75D760" Association="qlumi_testModel.Store.FK__UserGpsNo__sende__3B75D760">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="UserGpsNotes" EntitySet="UserGpsNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserInter__categ__3C69FB99" Association="qlumi_testModel.Store.FK__UserInter__categ__3C69FB99">
+            <End Role="AppCategory" EntitySet="AppCategory" />
+            <End Role="UserInterest" EntitySet="UserInterest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserInter__setti__3D5E1FD2" Association="qlumi_testModel.Store.FK__UserInter__setti__3D5E1FD2">
+            <End Role="SettingProfile" EntitySet="SettingProfile" />
+            <End Role="UserInterest" EntitySet="UserInterest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserInter__subCa__3E52440B" Association="qlumi_testModel.Store.FK__UserInter__subCa__3E52440B">
+            <End Role="SubCategory" EntitySet="SubCategory" />
+            <End Role="UserInterest" EntitySet="UserInterest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userLocat__userI__3F466844" Association="qlumi_testModel.Store.FK__userLocat__userI__3F466844">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="userLocation" EntitySet="userLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vendor__userId__403A8C7D" Association="qlumi_testModel.Store.FK__Vendor__userId__403A8C7D">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Vendor" EntitySet="Vendor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VendorInt__categ__412EB0B6" Association="qlumi_testModel.Store.FK__VendorInt__categ__412EB0B6">
+            <End Role="AppCategory" EntitySet="AppCategory" />
+            <End Role="VendorInterest" EntitySet="VendorInterest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VendorInt__setti__4222D4EF" Association="qlumi_testModel.Store.FK__VendorInt__setti__4222D4EF">
+            <End Role="VendorProfile" EntitySet="VendorProfile" />
+            <End Role="VendorInterest" EntitySet="VendorInterest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VendorInt__subCa__4316F928" Association="qlumi_testModel.Store.FK__VendorInt__subCa__4316F928">
+            <End Role="SubCategory" EntitySet="SubCategory" />
+            <End Role="VendorInterest" EntitySet="VendorInterest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VendorPro__vendo__440B1D61" Association="qlumi_testModel.Store.FK__VendorPro__vendo__440B1D61">
+            <End Role="Vendor" EntitySet="Vendor" />
+            <End Role="VendorProfile" EntitySet="VendorProfile" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AdInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vendorId" Type="int" />
+          <Property Name="adTypeId" Type="int" />
+          <Property Name="bidTypeId" Type="int" />
+          <Property Name="categoryId" Type="int" />
+          <Property Name="interestId" Type="int" />
+          <Property Name="isCustom" Type="int" />
+          <Property Name="isVisible" Type="int" />
+          <Property Name="customInterest" Type="varchar" MaxLength="500" />
+          <Property Name="dailyBudget" Type="varchar" MaxLength="255" />
+          <Property Name="couponUrl" Type="varchar" MaxLength="255" />
+          <Property Name="mapVideo" Type="varchar" MaxLength="255" />
+          <Property Name="mapImage" Type="varchar" MaxLength="255" />
+          <Property Name="sponsorFacts" Type="varchar" MaxLength="500" />
+          <Property Name="sponsorWebsite" Type="varchar" MaxLength="500" />
+          <Property Name="sponsorPhone" Type="varchar" MaxLength="255" />
+          <Property Name="sponorLogo" Type="varchar" MaxLength="255" />
+          <Property Name="createdAt" Type="datetime" />
+          <Property Name="adTitle" Type="varchar(max)" />
+          <Property Name="lati" Type="varchar(max)" />
+          <Property Name="longi" Type="varchar(max)" />
+          <Property Name="locationName" Type="varchar(max)" />
+          <Property Name="costPerAction" Type="varchar(max)" />
+          <Property Name="costPerConversion" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar(max)" />
+          <Property Name="email" Type="varchar(max)" />
+          <Property Name="password" Type="varchar(max)" />
+          <Property Name="username" Type="varchar(max)" />
+          <Property Name="loginStatus" Type="int" />
+        </EntityType>
+        <EntityType Name="AdProgress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vendorId" Type="int" Nullable="false" />
+          <Property Name="AdId" Type="int" Nullable="false" />
+          <Property Name="bidType" Type="varchar(max)" Nullable="false" />
+          <Property Name="cost" Type="varchar(max)" />
+          <Property Name="userPartialName" Type="varchar(max)" />
+          <Property Name="createdAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AdType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="AppCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="categoryName" Type="varchar(max)" />
+          <Property Name="categoryType" Type="varchar(max)" />
+          <Property Name="iconName" Type="varchar(max)" />
+          <Property Name="iconMarkerName" Type="varchar(max)" />
+          <Property Name="color" Type="varchar(max)" />
+          <Property Name="createdAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BidType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="varchar" MaxLength="255" />
+          <Property Name="bidCost" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="BillingHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vendorId" Type="int" Nullable="false" />
+          <Property Name="invoiceNo" Type="varchar" MaxLength="255" />
+          <Property Name="currency" Type="varchar" MaxLength="255" />
+          <Property Name="amount" Type="varchar(max)" />
+          <Property Name="billingMonth" Type="datetime" />
+          <Property Name="paidAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BillingInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vendorId" Type="int" Nullable="false" />
+          <Property Name="lastMonthPayment" Type="varchar(max)" Nullable="false" />
+          <Property Name="duePayment" Type="varchar(max)" />
+          <Property Name="lastPaymentDate" Type="datetime" />
+          <Property Name="nextPaymentDate" Type="datetime" />
+          <Property Name="totalPaid" Type="varchar(max)" />
+          <Property Name="createdAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="word" Type="varchar(max)" />
+          <Property Name="createdAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ChatHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="sId" Type="int" />
+          <Property Name="rId" Type="int" />
+          <Property Name="sName" Type="varchar(max)" />
+          <Property Name="rName" Type="varchar(max)" />
+          <Property Name="messageType" Type="int" />
+          <Property Name="message" Type="varchar(max)" />
+          <Property Name="messageDate" Type="varchar(max)" />
+          <Property Name="createdAt" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'qlumi_test.dbo.crawler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="crawler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="placeId" Type="varchar(max)" />
+          <Property Name="placeWebsite" Type="varchar(max)" />
+          <Property Name="deviceId" Type="varchar(max)" />
+          <Property Name="deviceLati" Type="varchar(max)" />
+          <Property Name="deviceLongi" Type="varchar(max)" />
+          <Property Name="htmlData" Type="varchar(max)" />
+          <Property Name="createdAt" Type="datetime" />
+          <Property Name="googleData" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="excludedWord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="word" Type="varchar(max)" />
+          <Property Name="createdAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="gpsNotes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="varchar(max)" />
+          <Property Name="lati" Type="varchar(max)" />
+          <Property Name="longi" Type="varchar(max)" />
+          <Property Name="address" Type="varchar(max)" />
+          <Property Name="description" Type="varchar(max)" />
+          <Property Name="color" Type="varchar(max)" />
+          <Property Name="sender_userId" Type="int" />
+          <Property Name="sender_name" Type="varchar(max)" />
+          <Property Name="receiver_userId" Type="int" />
+          <Property Name="receiver_name" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="includedWord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="word" Type="varchar(max)" />
+          <Property Name="createdAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="meetingNotes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="purpose" Type="varchar(max)" />
+          <Property Name="lati" Type="varchar(max)" />
+          <Property Name="longi" Type="varchar(max)" />
+          <Property Name="address" Type="varchar(max)" />
+          <Property Name="meetingDate" Type="varchar(max)" />
+          <Property Name="meetingTime" Type="varchar(max)" />
+          <Property Name="allowReminder" Type="int" />
+          <Property Name="sender_userId" Type="int" />
+          <Property Name="sender_name" Type="varchar(max)" />
+          <Property Name="receiver_userId" Type="int" />
+          <Property Name="receiver_name" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="messageCount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="unreadCount" Type="int" />
+        </EntityType>
+        <EntityType Name="ProfileColor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="color" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="SettingProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="profileName" Type="varchar(max)" />
+          <Property Name="color" Type="varchar(max)" />
+          <Property Name="colorId" Type="int" />
+          <Property Name="isActive" Type="int" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="categoryId" Type="int" Nullable="false" />
+          <Property Name="subCategoryName" Type="varchar(max)" />
+          <Property Name="subCategoryType" Type="varchar(max)" />
+          <Property Name="color" Type="varchar(max)" />
+          <Property Name="iconName" Type="varchar(max)" />
+          <Property Name="iconMarkerName" Type="varchar(max)" />
+          <Property Name="isCustom" Type="int" />
+          <Property Name="createdAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserContact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="int" />
+          <Property Name="qlumi_userId" Type="varchar" MaxLength="255" />
+          <Property Name="isVisible" Type="int" />
+        </EntityType>
+        <EntityType Name="UserGpsNotes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="255" />
+          <Property Name="lati" Type="varchar" MaxLength="255" />
+          <Property Name="longi" Type="varchar" MaxLength="255" />
+          <Property Name="address" Type="varchar" MaxLength="1000" />
+          <Property Name="description" Type="varchar" MaxLength="1000" />
+          <Property Name="color" Type="varchar" MaxLength="255" />
+          <Property Name="sender_userId" Type="int" Nullable="false" />
+          <Property Name="sender_name" Type="varchar" MaxLength="255" />
+          <Property Name="isBookmark" Type="int" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar(max)" />
+          <Property Name="email" Type="varchar(max)" />
+          <Property Name="password" Type="varchar(max)" />
+          <Property Name="contactNumber" Type="varchar(max)" />
+          <Property Name="profileImage" Type="varchar(max)" />
+          <Property Name="unlock_code" Type="varchar(max)" />
+          <Property Name="gcm_token" Type="varchar(max)" />
+          <Property Name="requestOrigin" Type="varchar(max)" />
+          <Property Name="app_version" Type="varchar(max)" />
+          <Property Name="createdAt" Type="datetime" />
+          <Property Name="qlumi_userId" Type="varchar(max)" />
+          <Property Name="connectionId" Type="varchar(max)" />
+          <Property Name="sessionId" Type="varchar(max)" />
+          <Property Name="loginStatus" Type="varchar(max)" />
+          <Property Name="notesInfo" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="UserInterest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="settingId" Type="int" />
+          <Property Name="categoryId" Type="int" />
+          <Property Name="subCategoryId" Type="int" />
+          <Property Name="radius" Type="int" />
+          <Property Name="color" Type="varchar(max)" />
+          <Property Name="isActive" Type="int" />
+        </EntityType>
+        <EntityType Name="userLocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="int" />
+          <Property Name="lati" Type="varchar(max)" />
+          <Property Name="longi" Type="varchar(max)" />
+          <Property Name="createdAt" Type="datetime" />
+          <Property Name="updatedAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar(max)" />
+          <Property Name="email" Type="varchar(max)" />
+          <Property Name="password" Type="varchar(max)" />
+          <Property Name="contactNumber" Type="varchar(max)" />
+          <Property Name="logoImage" Type="varchar(max)" />
+          <Property Name="unlock_code" Type="varchar(max)" />
+          <Property Name="description" Type="varchar(max)" />
+          <Property Name="createdAt" Type="datetime" />
+          <Property Name="website" Type="varchar(max)" />
+          <Property Name="tokenLimit" Type="int" />
+          <Property Name="currentTokenCount" Type="int" />
+          <Property Name="userId" Type="int" />
+          <Property Name="unlockCodeAge" Type="varchar(max)" />
+          <Property Name="role" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VendorInterest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="settingId" Type="int" />
+          <Property Name="categoryId" Type="int" />
+          <Property Name="subCategoryId" Type="int" />
+          <Property Name="radius" Type="int" />
+          <Property Name="color" Type="varchar(max)" />
+          <Property Name="isActive" Type="int" />
+        </EntityType>
+        <EntityType Name="VendorNotes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="varchar(max)" />
+          <Property Name="description" Type="varchar(max)" />
+          <Property Name="address" Type="varchar(max)" />
+          <Property Name="lati" Type="varchar(max)" />
+          <Property Name="longi" Type="varchar(max)" />
+          <Property Name="sender_userId" Type="int" />
+          <Property Name="sender_name" Type="varchar(max)" />
+          <Property Name="deliveryStatus" Type="int" />
+          <Property Name="createdAt" Type="datetime" />
+          <Property Name="updatedAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="VendorProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vendorId" Type="int" Nullable="false" />
+          <Property Name="profileName" Type="varchar(max)" />
+          <Property Name="color" Type="varchar(max)" />
+          <Property Name="colorId" Type="int" />
+          <Property Name="isActive" Type="int" />
+        </EntityType>
+        <Association Name="FK__AdInfo__adTypeId__6754599E">
+          <End Role="AdType" Type="qlumi_testModel.Store.AdType" Multiplicity="0..1" />
+          <End Role="AdInfo" Type="qlumi_testModel.Store.AdInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdInfo">
+              <PropertyRef Name="adTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdInfo__bidTypeI__68487DD7">
+          <End Role="BidType" Type="qlumi_testModel.Store.BidType" Multiplicity="0..1" />
+          <End Role="AdInfo" Type="qlumi_testModel.Store.AdInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BidType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdInfo">
+              <PropertyRef Name="bidTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdInfo__category__6A30C649">
+          <End Role="categories" Type="qlumi_testModel.Store.categories" Multiplicity="0..1" />
+          <End Role="AdInfo" Type="qlumi_testModel.Store.AdInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdInfo">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdInfo__interest__6B24EA82">
+          <End Role="SubCategory" Type="qlumi_testModel.Store.SubCategory" Multiplicity="0..1" />
+          <End Role="AdInfo" Type="qlumi_testModel.Store.AdInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdInfo">
+              <PropertyRef Name="interestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdInfo__vendorId__693CA210">
+          <End Role="Vendor" Type="qlumi_testModel.Store.Vendor" Multiplicity="0..1" />
+          <End Role="AdInfo" Type="qlumi_testModel.Store.AdInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdInfo">
+              <PropertyRef Name="vendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdProgres__vendo__06CD04F7">
+          <End Role="Vendor" Type="qlumi_testModel.Store.Vendor" Multiplicity="1" />
+          <End Role="AdProgress" Type="qlumi_testModel.Store.AdProgress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdProgress">
+              <PropertyRef Name="vendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BillingHi__vendo__160F4887">
+          <End Role="Vendor" Type="qlumi_testModel.Store.Vendor" Multiplicity="1" />
+          <End Role="BillingHistory" Type="qlumi_testModel.Store.BillingHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BillingHistory">
+              <PropertyRef Name="vendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BillingIn__vendo__09A971A2">
+          <End Role="Vendor" Type="qlumi_testModel.Store.Vendor" Multiplicity="1" />
+          <End Role="BillingInfo" Type="qlumi_testModel.Store.BillingInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BillingInfo">
+              <PropertyRef Name="vendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChatHistory__sId__35BCFE0A">
+          <End Role="UserInfo" Type="qlumi_testModel.Store.UserInfo" Multiplicity="0..1" />
+          <End Role="ChatHistory" Type="qlumi_testModel.Store.ChatHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChatHistory">
+              <PropertyRef Name="sId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChatHistory__sId__36B12243">
+          <End Role="UserInfo" Type="qlumi_testModel.Store.UserInfo" Multiplicity="0..1" />
+          <End Role="ChatHistory" Type="qlumi_testModel.Store.ChatHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChatHistory">
+              <PropertyRef Name="sId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__messageCo__userI__37A5467C">
+          <End Role="UserInfo" Type="qlumi_testModel.Store.UserInfo" Multiplicity="1" />
+          <End Role="messageCount" Type="qlumi_testModel.Store.messageCount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="messageCount">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SettingPr__userI__38996AB5">
+          <End Role="UserInfo" Type="qlumi_testModel.Store.UserInfo" Multiplicity="1" />
+          <End Role="SettingProfile" Type="qlumi_testModel.Store.SettingProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SettingProfile">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SubCatego__categ__398D8EEE">
+          <End Role="AppCategory" Type="qlumi_testModel.Store.AppCategory" Multiplicity="1" />
+          <End Role="SubCategory" Type="qlumi_testModel.Store.SubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubCategory">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserConta__userI__3A81B327">
+          <End Role="UserInfo" Type="qlumi_testModel.Store.UserInfo" Multiplicity="0..1" />
+          <End Role="UserContact" Type="qlumi_testModel.Store.UserContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserContact">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserGpsNo__sende__3B75D760">
+          <End Role="UserInfo" Type="qlumi_testModel.Store.UserInfo" Multiplicity="1" />
+          <End Role="UserGpsNotes" Type="qlumi_testModel.Store.UserGpsNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserGpsNotes">
+              <PropertyRef Name="sender_userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserInter__categ__3C69FB99">
+          <End Role="AppCategory" Type="qlumi_testModel.Store.AppCategory" Multiplicity="0..1" />
+          <End Role="UserInterest" Type="qlumi_testModel.Store.UserInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserInterest">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserInter__setti__3D5E1FD2">
+          <End Role="SettingProfile" Type="qlumi_testModel.Store.SettingProfile" Multiplicity="0..1" />
+          <End Role="UserInterest" Type="qlumi_testModel.Store.UserInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SettingProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserInterest">
+              <PropertyRef Name="settingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserInter__subCa__3E52440B">
+          <End Role="SubCategory" Type="qlumi_testModel.Store.SubCategory" Multiplicity="0..1" />
+          <End Role="UserInterest" Type="qlumi_testModel.Store.UserInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserInterest">
+              <PropertyRef Name="subCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userLocat__userI__3F466844">
+          <End Role="UserInfo" Type="qlumi_testModel.Store.UserInfo" Multiplicity="0..1" />
+          <End Role="userLocation" Type="qlumi_testModel.Store.userLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="userLocation">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vendor__userId__403A8C7D">
+          <End Role="UserInfo" Type="qlumi_testModel.Store.UserInfo" Multiplicity="0..1" />
+          <End Role="Vendor" Type="qlumi_testModel.Store.Vendor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vendor">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VendorInt__categ__412EB0B6">
+          <End Role="AppCategory" Type="qlumi_testModel.Store.AppCategory" Multiplicity="0..1" />
+          <End Role="VendorInterest" Type="qlumi_testModel.Store.VendorInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VendorInterest">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VendorInt__setti__4222D4EF">
+          <End Role="VendorProfile" Type="qlumi_testModel.Store.VendorProfile" Multiplicity="0..1" />
+          <End Role="VendorInterest" Type="qlumi_testModel.Store.VendorInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VendorProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VendorInterest">
+              <PropertyRef Name="settingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VendorInt__subCa__4316F928">
+          <End Role="SubCategory" Type="qlumi_testModel.Store.SubCategory" Multiplicity="0..1" />
+          <End Role="VendorInterest" Type="qlumi_testModel.Store.VendorInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VendorInterest">
+              <PropertyRef Name="subCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VendorPro__vendo__440B1D61">
+          <End Role="Vendor" Type="qlumi_testModel.Store.Vendor" Multiplicity="1" />
+          <End Role="VendorProfile" Type="qlumi_testModel.Store.VendorProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VendorProfile">
+              <PropertyRef Name="vendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="qlumi_testModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="qlumi_testEntities1" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="AdInfoes" EntityType="qlumi_testModel.AdInfo" />
+          <EntitySet Name="admins" EntityType="qlumi_testModel.admin" />
+          <EntitySet Name="AdTypes" EntityType="qlumi_testModel.AdType" />
+          <EntitySet Name="AppCategories" EntityType="qlumi_testModel.AppCategory" />
+          <EntitySet Name="BidTypes" EntityType="qlumi_testModel.BidType" />
+          <EntitySet Name="categories" EntityType="qlumi_testModel.category" />
+          <EntitySet Name="ChatHistories" EntityType="qlumi_testModel.ChatHistory" />
+          <EntitySet Name="crawlers" EntityType="qlumi_testModel.crawler" />
+          <EntitySet Name="excludedWords" EntityType="qlumi_testModel.excludedWord" />
+          <EntitySet Name="gpsNotes" EntityType="qlumi_testModel.gpsNote" />
+          <EntitySet Name="includedWords" EntityType="qlumi_testModel.includedWord" />
+          <EntitySet Name="meetingNotes" EntityType="qlumi_testModel.meetingNote" />
+          <EntitySet Name="messageCounts" EntityType="qlumi_testModel.messageCount" />
+          <EntitySet Name="ProfileColors" EntityType="qlumi_testModel.ProfileColor" />
+          <EntitySet Name="SettingProfiles" EntityType="qlumi_testModel.SettingProfile" />
+          <EntitySet Name="SubCategories" EntityType="qlumi_testModel.SubCategory" />
+          <EntitySet Name="UserContacts" EntityType="qlumi_testModel.UserContact" />
+          <EntitySet Name="UserGpsNotes" EntityType="qlumi_testModel.UserGpsNote" />
+          <EntitySet Name="UserInfoes" EntityType="qlumi_testModel.UserInfo" />
+          <EntitySet Name="UserInterests" EntityType="qlumi_testModel.UserInterest" />
+          <EntitySet Name="userLocations" EntityType="qlumi_testModel.userLocation" />
+          <EntitySet Name="Vendors" EntityType="qlumi_testModel.Vendor" />
+          <EntitySet Name="VendorInterests" EntityType="qlumi_testModel.VendorInterest" />
+          <EntitySet Name="VendorNotes" EntityType="qlumi_testModel.VendorNote" />
+          <EntitySet Name="VendorProfiles" EntityType="qlumi_testModel.VendorProfile" />
+          <AssociationSet Name="FK__AdInfo__adTypeId__6754599E" Association="qlumi_testModel.FK__AdInfo__adTypeId__6754599E">
+            <End Role="AdType" EntitySet="AdTypes" />
+            <End Role="AdInfo" EntitySet="AdInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdInfo__bidTypeI__68487DD7" Association="qlumi_testModel.FK__AdInfo__bidTypeI__68487DD7">
+            <End Role="BidType" EntitySet="BidTypes" />
+            <End Role="AdInfo" EntitySet="AdInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdInfo__category__6A30C649" Association="qlumi_testModel.FK__AdInfo__category__6A30C649">
+            <End Role="categories" EntitySet="categories" />
+            <End Role="AdInfo" EntitySet="AdInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdInfo__interest__6B24EA82" Association="qlumi_testModel.FK__AdInfo__interest__6B24EA82">
+            <End Role="SubCategory" EntitySet="SubCategories" />
+            <End Role="AdInfo" EntitySet="AdInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdInfo__vendorId__693CA210" Association="qlumi_testModel.FK__AdInfo__vendorId__693CA210">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="AdInfo" EntitySet="AdInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SubCatego__categ__398D8EEE" Association="qlumi_testModel.FK__SubCatego__categ__398D8EEE">
+            <End Role="AppCategory" EntitySet="AppCategories" />
+            <End Role="SubCategory" EntitySet="SubCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserInter__categ__3C69FB99" Association="qlumi_testModel.FK__UserInter__categ__3C69FB99">
+            <End Role="AppCategory" EntitySet="AppCategories" />
+            <End Role="UserInterest" EntitySet="UserInterests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VendorInt__categ__412EB0B6" Association="qlumi_testModel.FK__VendorInt__categ__412EB0B6">
+            <End Role="AppCategory" EntitySet="AppCategories" />
+            <End Role="VendorInterest" EntitySet="VendorInterests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChatHistory__sId__35BCFE0A" Association="qlumi_testModel.FK__ChatHistory__sId__35BCFE0A">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="ChatHistory" EntitySet="ChatHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChatHistory__sId__36B12243" Association="qlumi_testModel.FK__ChatHistory__sId__36B12243">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="ChatHistory" EntitySet="ChatHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__messageCo__userI__37A5467C" Association="qlumi_testModel.FK__messageCo__userI__37A5467C">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="messageCount" EntitySet="messageCounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SettingPr__userI__38996AB5" Association="qlumi_testModel.FK__SettingPr__userI__38996AB5">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="SettingProfile" EntitySet="SettingProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserInter__setti__3D5E1FD2" Association="qlumi_testModel.FK__UserInter__setti__3D5E1FD2">
+            <End Role="SettingProfile" EntitySet="SettingProfiles" />
+            <End Role="UserInterest" EntitySet="UserInterests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserInter__subCa__3E52440B" Association="qlumi_testModel.FK__UserInter__subCa__3E52440B">
+            <End Role="SubCategory" EntitySet="SubCategories" />
+            <End Role="UserInterest" EntitySet="UserInterests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VendorInt__subCa__4316F928" Association="qlumi_testModel.FK__VendorInt__subCa__4316F928">
+            <End Role="SubCategory" EntitySet="SubCategories" />
+            <End Role="VendorInterest" EntitySet="VendorInterests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserConta__userI__3A81B327" Association="qlumi_testModel.FK__UserConta__userI__3A81B327">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="UserContact" EntitySet="UserContacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserGpsNo__sende__3B75D760" Association="qlumi_testModel.FK__UserGpsNo__sende__3B75D760">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="UserGpsNotes" EntitySet="UserGpsNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userLocat__userI__3F466844" Association="qlumi_testModel.FK__userLocat__userI__3F466844">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="userLocation" EntitySet="userLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vendor__userId__403A8C7D" Association="qlumi_testModel.FK__Vendor__userId__403A8C7D">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="Vendor" EntitySet="Vendors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VendorPro__vendo__440B1D61" Association="qlumi_testModel.FK__VendorPro__vendo__440B1D61">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="VendorProfile" EntitySet="VendorProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VendorInt__setti__4222D4EF" Association="qlumi_testModel.FK__VendorInt__setti__4222D4EF">
+            <End Role="VendorProfile" EntitySet="VendorProfiles" />
+            <End Role="VendorInterest" EntitySet="VendorInterests" />
+          </AssociationSet>
+          <EntitySet Name="AdProgresses" EntityType="qlumi_testModel.AdProgress" />
+          <EntitySet Name="BillingInfoes" EntityType="qlumi_testModel.BillingInfo" />
+          <AssociationSet Name="FK__AdProgres__vendo__06CD04F7" Association="qlumi_testModel.FK__AdProgres__vendo__06CD04F7">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="AdProgress" EntitySet="AdProgresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillingIn__vendo__09A971A2" Association="qlumi_testModel.FK__BillingIn__vendo__09A971A2">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="BillingInfo" EntitySet="BillingInfoes" />
+          </AssociationSet>
+          <EntitySet Name="BillingHistories" EntityType="qlumi_testModel.BillingHistory" />
+          <AssociationSet Name="FK__BillingHi__vendo__160F4887" Association="qlumi_testModel.FK__BillingHi__vendo__160F4887">
+            <End Role="Vendor" EntitySet="Vendors" />
+            <End Role="BillingHistory" EntitySet="BillingHistories" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="AdInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="vendorId" Type="Int32" />
+          <Property Name="adTypeId" Type="Int32" />
+          <Property Name="bidTypeId" Type="Int32" />
+          <Property Name="categoryId" Type="Int32" />
+          <Property Name="interestId" Type="Int32" />
+          <Property Name="isCustom" Type="Int32" />
+          <Property Name="isVisible" Type="Int32" />
+          <Property Name="customInterest" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="dailyBudget" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="couponUrl" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="mapVideo" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="mapImage" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="sponsorFacts" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="sponsorWebsite" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="sponsorPhone" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="sponorLogo" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="createdAt" Type="DateTime" Precision="3" />
+          <Property Name="adTitle" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="lati" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="longi" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="locationName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="costPerAction" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="costPerConversion" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="AdType" Relationship="qlumi_testModel.FK__AdInfo__adTypeId__6754599E" FromRole="AdInfo" ToRole="AdType" />
+          <NavigationProperty Name="BidType" Relationship="qlumi_testModel.FK__AdInfo__bidTypeI__68487DD7" FromRole="AdInfo" ToRole="BidType" />
+          <NavigationProperty Name="category" Relationship="qlumi_testModel.FK__AdInfo__category__6A30C649" FromRole="AdInfo" ToRole="categories" />
+          <NavigationProperty Name="SubCategory" Relationship="qlumi_testModel.FK__AdInfo__interest__6B24EA82" FromRole="AdInfo" ToRole="SubCategory" />
+          <NavigationProperty Name="Vendor" Relationship="qlumi_testModel.FK__AdInfo__vendorId__693CA210" FromRole="AdInfo" ToRole="Vendor" />
+        </EntityType>
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="username" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="loginStatus" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AdType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="AdInfoes" Relationship="qlumi_testModel.FK__AdInfo__adTypeId__6754599E" FromRole="AdType" ToRole="AdInfo" />
+        </EntityType>
+        <EntityType Name="AppCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="categoryType" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="iconName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="iconMarkerName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="color" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="createdAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="SubCategories" Relationship="qlumi_testModel.FK__SubCatego__categ__398D8EEE" FromRole="AppCategory" ToRole="SubCategory" />
+          <NavigationProperty Name="UserInterests" Relationship="qlumi_testModel.FK__UserInter__categ__3C69FB99" FromRole="AppCategory" ToRole="UserInterest" />
+          <NavigationProperty Name="VendorInterests" Relationship="qlumi_testModel.FK__VendorInt__categ__412EB0B6" FromRole="AppCategory" ToRole="VendorInterest" />
+        </EntityType>
+        <EntityType Name="BidType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="bidCost" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="AdInfoes" Relationship="qlumi_testModel.FK__AdInfo__bidTypeI__68487DD7" FromRole="BidType" ToRole="AdInfo" />
+        </EntityType>
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="word" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="createdAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AdInfoes" Relationship="qlumi_testModel.FK__AdInfo__category__6A30C649" FromRole="categories" ToRole="AdInfo" />
+        </EntityType>
+        <EntityType Name="ChatHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="sId" Type="Int32" />
+          <Property Name="rId" Type="Int32" />
+          <Property Name="sName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="rName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="messageType" Type="Int32" />
+          <Property Name="message" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="messageDate" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="createdAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="UserInfo" Relationship="qlumi_testModel.FK__ChatHistory__sId__35BCFE0A" FromRole="ChatHistory" ToRole="UserInfo" />
+          <NavigationProperty Name="UserInfo1" Relationship="qlumi_testModel.FK__ChatHistory__sId__36B12243" FromRole="ChatHistory" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="crawler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="placeId" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="placeWebsite" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="deviceId" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="deviceLati" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="deviceLongi" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="htmlData" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="createdAt" Type="DateTime" Precision="3" />
+          <Property Name="googleData" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="excludedWord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="word" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="createdAt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="gpsNote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="lati" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="longi" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="address" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="color" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="sender_userId" Type="Int32" />
+          <Property Name="sender_name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="receiver_userId" Type="Int32" />
+          <Property Name="receiver_name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="includedWord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="word" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="createdAt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="meetingNote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="purpose" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="lati" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="longi" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="address" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="meetingDate" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="meetingTime" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="allowReminder" Type="Int32" />
+          <Property Name="sender_userId" Type="Int32" />
+          <Property Name="sender_name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="receiver_userId" Type="Int32" />
+          <Property Name="receiver_name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="messageCount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="unreadCount" Type="Int32" />
+          <NavigationProperty Name="UserInfo" Relationship="qlumi_testModel.FK__messageCo__userI__37A5467C" FromRole="messageCount" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="ProfileColor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="color" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SettingProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="profileName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="color" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="colorId" Type="Int32" />
+          <Property Name="isActive" Type="Int32" />
+          <NavigationProperty Name="UserInfo" Relationship="qlumi_testModel.FK__SettingPr__userI__38996AB5" FromRole="SettingProfile" ToRole="UserInfo" />
+          <NavigationProperty Name="UserInterests" Relationship="qlumi_testModel.FK__UserInter__setti__3D5E1FD2" FromRole="SettingProfile" ToRole="UserInterest" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryId" Type="Int32" Nullable="false" />
+          <Property Name="subCategoryName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="subCategoryType" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="color" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="iconName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="iconMarkerName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="isCustom" Type="Int32" />
+          <Property Name="createdAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AdInfoes" Relationship="qlumi_testModel.FK__AdInfo__interest__6B24EA82" FromRole="SubCategory" ToRole="AdInfo" />
+          <NavigationProperty Name="AppCategory" Relationship="qlumi_testModel.FK__SubCatego__categ__398D8EEE" FromRole="SubCategory" ToRole="AppCategory" />
+          <NavigationProperty Name="UserInterests" Relationship="qlumi_testModel.FK__UserInter__subCa__3E52440B" FromRole="SubCategory" ToRole="UserInterest" />
+          <NavigationProperty Name="VendorInterests" Relationship="qlumi_testModel.FK__VendorInt__subCa__4316F928" FromRole="SubCategory" ToRole="VendorInterest" />
+        </EntityType>
+        <EntityType Name="UserContact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="qlumi_userId" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="isVisible" Type="Int32" />
+          <NavigationProperty Name="UserInfo" Relationship="qlumi_testModel.FK__UserConta__userI__3A81B327" FromRole="UserContact" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="UserGpsNote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="lati" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="longi" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="address" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="color" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="sender_userId" Type="Int32" Nullable="false" />
+          <Property Name="sender_name" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="isBookmark" Type="Int32" />
+          <NavigationProperty Name="UserInfo" Relationship="qlumi_testModel.FK__UserGpsNo__sende__3B75D760" FromRole="UserGpsNotes" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="contactNumber" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="profileImage" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="unlock_code" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="gcm_token" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="requestOrigin" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="app_version" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="createdAt" Type="DateTime" Precision="3" />
+          <Property Name="qlumi_userId" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="connectionId" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="sessionId" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="loginStatus" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="notesInfo" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="ChatHistories" Relationship="qlumi_testModel.FK__ChatHistory__sId__35BCFE0A" FromRole="UserInfo" ToRole="ChatHistory" />
+          <NavigationProperty Name="ChatHistories1" Relationship="qlumi_testModel.FK__ChatHistory__sId__36B12243" FromRole="UserInfo" ToRole="ChatHistory" />
+          <NavigationProperty Name="messageCounts" Relationship="qlumi_testModel.FK__messageCo__userI__37A5467C" FromRole="UserInfo" ToRole="messageCount" />
+          <NavigationProperty Name="SettingProfiles" Relationship="qlumi_testModel.FK__SettingPr__userI__38996AB5" FromRole="UserInfo" ToRole="SettingProfile" />
+          <NavigationProperty Name="UserContacts" Relationship="qlumi_testModel.FK__UserConta__userI__3A81B327" FromRole="UserInfo" ToRole="UserContact" />
+          <NavigationProperty Name="UserGpsNotes" Relationship="qlumi_testModel.FK__UserGpsNo__sende__3B75D760" FromRole="UserInfo" ToRole="UserGpsNotes" />
+          <NavigationProperty Name="userLocations" Relationship="qlumi_testModel.FK__userLocat__userI__3F466844" FromRole="UserInfo" ToRole="userLocation" />
+          <NavigationProperty Name="Vendors" Relationship="qlumi_testModel.FK__Vendor__userId__403A8C7D" FromRole="UserInfo" ToRole="Vendor" />
+        </EntityType>
+        <EntityType Name="UserInterest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="settingId" Type="Int32" />
+          <Property Name="categoryId" Type="Int32" />
+          <Property Name="subCategoryId" Type="Int32" />
+          <Property Name="radius" Type="Int32" />
+          <Property Name="color" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="isActive" Type="Int32" />
+          <NavigationProperty Name="AppCategory" Relationship="qlumi_testModel.FK__UserInter__categ__3C69FB99" FromRole="UserInterest" ToRole="AppCategory" />
+          <NavigationProperty Name="SettingProfile" Relationship="qlumi_testModel.FK__UserInter__setti__3D5E1FD2" FromRole="UserInterest" ToRole="SettingProfile" />
+          <NavigationProperty Name="SubCategory" Relationship="qlumi_testModel.FK__UserInter__subCa__3E52440B" FromRole="UserInterest" ToRole="SubCategory" />
+        </EntityType>
+        <EntityType Name="userLocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="lati" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="longi" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="createdAt" Type="DateTime" Precision="3" />
+          <Property Name="updatedAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="UserInfo" Relationship="qlumi_testModel.FK__userLocat__userI__3F466844" FromRole="userLocation" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="contactNumber" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="logoImage" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="unlock_code" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="createdAt" Type="DateTime" Precision="3" />
+          <Property Name="website" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="tokenLimit" Type="Int32" />
+          <Property Name="currentTokenCount" Type="Int32" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="unlockCodeAge" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AdInfoes" Relationship="qlumi_testModel.FK__AdInfo__vendorId__693CA210" FromRole="Vendor" ToRole="AdInfo" />
+          <NavigationProperty Name="UserInfo" Relationship="qlumi_testModel.FK__Vendor__userId__403A8C7D" FromRole="Vendor" ToRole="UserInfo" />
+          <NavigationProperty Name="VendorProfiles" Relationship="qlumi_testModel.FK__VendorPro__vendo__440B1D61" FromRole="Vendor" ToRole="VendorProfile" />
+          <NavigationProperty Name="AdProgresses" Relationship="qlumi_testModel.FK__AdProgres__vendo__06CD04F7" FromRole="Vendor" ToRole="AdProgress" />
+          <NavigationProperty Name="BillingInfoes" Relationship="qlumi_testModel.FK__BillingIn__vendo__09A971A2" FromRole="Vendor" ToRole="BillingInfo" />
+          <NavigationProperty Name="BillingHistories" Relationship="qlumi_testModel.FK__BillingHi__vendo__160F4887" FromRole="Vendor" ToRole="BillingHistory" />
+        </EntityType>
+        <EntityType Name="VendorInterest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="settingId" Type="Int32" />
+          <Property Name="categoryId" Type="Int32" />
+          <Property Name="subCategoryId" Type="Int32" />
+          <Property Name="radius" Type="Int32" />
+          <Property Name="color" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="isActive" Type="Int32" />
+          <NavigationProperty Name="AppCategory" Relationship="qlumi_testModel.FK__VendorInt__categ__412EB0B6" FromRole="VendorInterest" ToRole="AppCategory" />
+          <NavigationProperty Name="SubCategory" Relationship="qlumi_testModel.FK__VendorInt__subCa__4316F928" FromRole="VendorInterest" ToRole="SubCategory" />
+          <NavigationProperty Name="VendorProfile" Relationship="qlumi_testModel.FK__VendorInt__setti__4222D4EF" FromRole="VendorInterest" ToRole="VendorProfile" />
+        </EntityType>
+        <EntityType Name="VendorNote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="address" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="lati" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="longi" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="sender_userId" Type="Int32" />
+          <Property Name="sender_name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="deliveryStatus" Type="Int32" />
+          <Property Name="createdAt" Type="DateTime" Precision="3" />
+          <Property Name="updatedAt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="VendorProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="vendorId" Type="Int32" Nullable="false" />
+          <Property Name="profileName" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="color" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="colorId" Type="Int32" />
+          <Property Name="isActive" Type="Int32" />
+          <NavigationProperty Name="Vendor" Relationship="qlumi_testModel.FK__VendorPro__vendo__440B1D61" FromRole="VendorProfile" ToRole="Vendor" />
+          <NavigationProperty Name="VendorInterests" Relationship="qlumi_testModel.FK__VendorInt__setti__4222D4EF" FromRole="VendorProfile" ToRole="VendorInterest" />
+        </EntityType>
+        <Association Name="FK__AdInfo__adTypeId__6754599E">
+          <End Role="AdType" Type="qlumi_testModel.AdType" Multiplicity="0..1" />
+          <End Role="AdInfo" Type="qlumi_testModel.AdInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdInfo">
+              <PropertyRef Name="adTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdInfo__bidTypeI__68487DD7">
+          <End Role="BidType" Type="qlumi_testModel.BidType" Multiplicity="0..1" />
+          <End Role="AdInfo" Type="qlumi_testModel.AdInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BidType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdInfo">
+              <PropertyRef Name="bidTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdInfo__category__6A30C649">
+          <End Role="categories" Type="qlumi_testModel.category" Multiplicity="0..1" />
+          <End Role="AdInfo" Type="qlumi_testModel.AdInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdInfo">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdInfo__interest__6B24EA82">
+          <End Role="SubCategory" Type="qlumi_testModel.SubCategory" Multiplicity="0..1" />
+          <End Role="AdInfo" Type="qlumi_testModel.AdInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdInfo">
+              <PropertyRef Name="interestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdInfo__vendorId__693CA210">
+          <End Role="Vendor" Type="qlumi_testModel.Vendor" Multiplicity="0..1" />
+          <End Role="AdInfo" Type="qlumi_testModel.AdInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdInfo">
+              <PropertyRef Name="vendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SubCatego__categ__398D8EEE">
+          <End Role="AppCategory" Type="qlumi_testModel.AppCategory" Multiplicity="1" />
+          <End Role="SubCategory" Type="qlumi_testModel.SubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubCategory">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserInter__categ__3C69FB99">
+          <End Role="AppCategory" Type="qlumi_testModel.AppCategory" Multiplicity="0..1" />
+          <End Role="UserInterest" Type="qlumi_testModel.UserInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserInterest">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VendorInt__categ__412EB0B6">
+          <End Role="AppCategory" Type="qlumi_testModel.AppCategory" Multiplicity="0..1" />
+          <End Role="VendorInterest" Type="qlumi_testModel.VendorInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VendorInterest">
+              <PropertyRef Name="categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChatHistory__sId__35BCFE0A">
+          <End Role="UserInfo" Type="qlumi_testModel.UserInfo" Multiplicity="0..1" />
+          <End Role="ChatHistory" Type="qlumi_testModel.ChatHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChatHistory">
+              <PropertyRef Name="sId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChatHistory__sId__36B12243">
+          <End Role="UserInfo" Type="qlumi_testModel.UserInfo" Multiplicity="0..1" />
+          <End Role="ChatHistory" Type="qlumi_testModel.ChatHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChatHistory">
+              <PropertyRef Name="sId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__messageCo__userI__37A5467C">
+          <End Role="UserInfo" Type="qlumi_testModel.UserInfo" Multiplicity="1" />
+          <End Role="messageCount" Type="qlumi_testModel.messageCount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="messageCount">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SettingPr__userI__38996AB5">
+          <End Role="UserInfo" Type="qlumi_testModel.UserInfo" Multiplicity="1" />
+          <End Role="SettingProfile" Type="qlumi_testModel.SettingProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SettingProfile">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserInter__setti__3D5E1FD2">
+          <End Role="SettingProfile" Type="qlumi_testModel.SettingProfile" Multiplicity="0..1" />
+          <End Role="UserInterest" Type="qlumi_testModel.UserInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SettingProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserInterest">
+              <PropertyRef Name="settingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserInter__subCa__3E52440B">
+          <End Role="SubCategory" Type="qlumi_testModel.SubCategory" Multiplicity="0..1" />
+          <End Role="UserInterest" Type="qlumi_testModel.UserInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserInterest">
+              <PropertyRef Name="subCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VendorInt__subCa__4316F928">
+          <End Role="SubCategory" Type="qlumi_testModel.SubCategory" Multiplicity="0..1" />
+          <End Role="VendorInterest" Type="qlumi_testModel.VendorInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VendorInterest">
+              <PropertyRef Name="subCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserConta__userI__3A81B327">
+          <End Role="UserInfo" Type="qlumi_testModel.UserInfo" Multiplicity="0..1" />
+          <End Role="UserContact" Type="qlumi_testModel.UserContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserContact">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserGpsNo__sende__3B75D760">
+          <End Role="UserInfo" Type="qlumi_testModel.UserInfo" Multiplicity="1" />
+          <End Role="UserGpsNotes" Type="qlumi_testModel.UserGpsNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserGpsNotes">
+              <PropertyRef Name="sender_userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userLocat__userI__3F466844">
+          <End Role="UserInfo" Type="qlumi_testModel.UserInfo" Multiplicity="0..1" />
+          <End Role="userLocation" Type="qlumi_testModel.userLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="userLocation">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vendor__userId__403A8C7D">
+          <End Role="UserInfo" Type="qlumi_testModel.UserInfo" Multiplicity="0..1" />
+          <End Role="Vendor" Type="qlumi_testModel.Vendor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vendor">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VendorPro__vendo__440B1D61">
+          <End Role="Vendor" Type="qlumi_testModel.Vendor" Multiplicity="1" />
+          <End Role="VendorProfile" Type="qlumi_testModel.VendorProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VendorProfile">
+              <PropertyRef Name="vendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VendorInt__setti__4222D4EF">
+          <End Role="VendorProfile" Type="qlumi_testModel.VendorProfile" Multiplicity="0..1" />
+          <End Role="VendorInterest" Type="qlumi_testModel.VendorInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VendorProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VendorInterest">
+              <PropertyRef Name="settingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AdProgress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="vendorId" Nullable="false" />
+          <Property Type="Int32" Name="AdId" Nullable="false" />
+          <Property Type="String" Name="bidType" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cost" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="userPartialName" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="createdAt" Precision="3" />
+          <NavigationProperty Name="Vendor" Relationship="qlumi_testModel.FK__AdProgres__vendo__06CD04F7" FromRole="AdProgress" ToRole="Vendor" />
+        </EntityType>
+        <EntityType Name="BillingInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="vendorId" Nullable="false" />
+          <Property Type="String" Name="lastMonthPayment" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="duePayment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="lastPaymentDate" Precision="3" />
+          <Property Type="DateTime" Name="nextPaymentDate" Precision="3" />
+          <Property Type="String" Name="totalPaid" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="createdAt" Precision="3" />
+          <NavigationProperty Name="Vendor" Relationship="qlumi_testModel.FK__BillingIn__vendo__09A971A2" FromRole="BillingInfo" ToRole="Vendor" />
+        </EntityType>
+        <Association Name="FK__AdProgres__vendo__06CD04F7">
+          <End Type="qlumi_testModel.Vendor" Role="Vendor" Multiplicity="1" />
+          <End Type="qlumi_testModel.AdProgress" Role="AdProgress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdProgress">
+              <PropertyRef Name="vendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BillingIn__vendo__09A971A2">
+          <End Type="qlumi_testModel.Vendor" Role="Vendor" Multiplicity="1" />
+          <End Type="qlumi_testModel.BillingInfo" Role="BillingInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BillingInfo">
+              <PropertyRef Name="vendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BillingHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="vendorId" Nullable="false" />
+          <Property Type="String" Name="invoiceNo" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="currency" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="amount" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="billingMonth" Precision="3" />
+          <Property Type="DateTime" Name="paidAt" Precision="3" />
+          <NavigationProperty Name="Vendor" Relationship="qlumi_testModel.FK__BillingHi__vendo__160F4887" FromRole="BillingHistory" ToRole="Vendor" />
+        </EntityType>
+        <Association Name="FK__BillingHi__vendo__160F4887">
+          <End Type="qlumi_testModel.Vendor" Role="Vendor" Multiplicity="1" />
+          <End Type="qlumi_testModel.BillingHistory" Role="BillingHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BillingHistory">
+              <PropertyRef Name="vendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="qlumi_testModelStoreContainer" CdmEntityContainer="qlumi_testEntities1">
+          <EntitySetMapping Name="AdInfoes">
+            <EntityTypeMapping TypeName="qlumi_testModel.AdInfo">
+              <MappingFragment StoreEntitySet="AdInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+                <ScalarProperty Name="adTypeId" ColumnName="adTypeId" />
+                <ScalarProperty Name="bidTypeId" ColumnName="bidTypeId" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="interestId" ColumnName="interestId" />
+                <ScalarProperty Name="isCustom" ColumnName="isCustom" />
+                <ScalarProperty Name="isVisible" ColumnName="isVisible" />
+                <ScalarProperty Name="customInterest" ColumnName="customInterest" />
+                <ScalarProperty Name="dailyBudget" ColumnName="dailyBudget" />
+                <ScalarProperty Name="couponUrl" ColumnName="couponUrl" />
+                <ScalarProperty Name="mapVideo" ColumnName="mapVideo" />
+                <ScalarProperty Name="mapImage" ColumnName="mapImage" />
+                <ScalarProperty Name="sponsorFacts" ColumnName="sponsorFacts" />
+                <ScalarProperty Name="sponsorWebsite" ColumnName="sponsorWebsite" />
+                <ScalarProperty Name="sponsorPhone" ColumnName="sponsorPhone" />
+                <ScalarProperty Name="sponorLogo" ColumnName="sponorLogo" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="adTitle" ColumnName="adTitle" />
+                <ScalarProperty Name="lati" ColumnName="lati" />
+                <ScalarProperty Name="longi" ColumnName="longi" />
+                <ScalarProperty Name="locationName" ColumnName="locationName" />
+                <ScalarProperty Name="costPerAction" ColumnName="costPerAction" />
+                <ScalarProperty Name="costPerConversion" ColumnName="costPerConversion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admins">
+            <EntityTypeMapping TypeName="qlumi_testModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="loginStatus" ColumnName="loginStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdTypes">
+            <EntityTypeMapping TypeName="qlumi_testModel.AdType">
+              <MappingFragment StoreEntitySet="AdType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppCategories">
+            <EntityTypeMapping TypeName="qlumi_testModel.AppCategory">
+              <MappingFragment StoreEntitySet="AppCategory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+                <ScalarProperty Name="categoryType" ColumnName="categoryType" />
+                <ScalarProperty Name="iconName" ColumnName="iconName" />
+                <ScalarProperty Name="iconMarkerName" ColumnName="iconMarkerName" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BidTypes">
+            <EntityTypeMapping TypeName="qlumi_testModel.BidType">
+              <MappingFragment StoreEntitySet="BidType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="bidCost" ColumnName="bidCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categories">
+            <EntityTypeMapping TypeName="qlumi_testModel.category">
+              <MappingFragment StoreEntitySet="categories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="word" ColumnName="word" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChatHistories">
+            <EntityTypeMapping TypeName="qlumi_testModel.ChatHistory">
+              <MappingFragment StoreEntitySet="ChatHistory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="sId" ColumnName="sId" />
+                <ScalarProperty Name="rId" ColumnName="rId" />
+                <ScalarProperty Name="sName" ColumnName="sName" />
+                <ScalarProperty Name="rName" ColumnName="rName" />
+                <ScalarProperty Name="messageType" ColumnName="messageType" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="messageDate" ColumnName="messageDate" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="crawlers">
+            <EntityTypeMapping TypeName="qlumi_testModel.crawler">
+              <MappingFragment StoreEntitySet="crawler">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="placeId" ColumnName="placeId" />
+                <ScalarProperty Name="placeWebsite" ColumnName="placeWebsite" />
+                <ScalarProperty Name="deviceId" ColumnName="deviceId" />
+                <ScalarProperty Name="deviceLati" ColumnName="deviceLati" />
+                <ScalarProperty Name="deviceLongi" ColumnName="deviceLongi" />
+                <ScalarProperty Name="htmlData" ColumnName="htmlData" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="googleData" ColumnName="googleData" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="excludedWords">
+            <EntityTypeMapping TypeName="qlumi_testModel.excludedWord">
+              <MappingFragment StoreEntitySet="excludedWord">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="word" ColumnName="word" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gpsNotes">
+            <EntityTypeMapping TypeName="qlumi_testModel.gpsNote">
+              <MappingFragment StoreEntitySet="gpsNotes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="lati" ColumnName="lati" />
+                <ScalarProperty Name="longi" ColumnName="longi" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="sender_userId" ColumnName="sender_userId" />
+                <ScalarProperty Name="sender_name" ColumnName="sender_name" />
+                <ScalarProperty Name="receiver_userId" ColumnName="receiver_userId" />
+                <ScalarProperty Name="receiver_name" ColumnName="receiver_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="includedWords">
+            <EntityTypeMapping TypeName="qlumi_testModel.includedWord">
+              <MappingFragment StoreEntitySet="includedWord">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="word" ColumnName="word" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="meetingNotes">
+            <EntityTypeMapping TypeName="qlumi_testModel.meetingNote">
+              <MappingFragment StoreEntitySet="meetingNotes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="purpose" ColumnName="purpose" />
+                <ScalarProperty Name="lati" ColumnName="lati" />
+                <ScalarProperty Name="longi" ColumnName="longi" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="meetingDate" ColumnName="meetingDate" />
+                <ScalarProperty Name="meetingTime" ColumnName="meetingTime" />
+                <ScalarProperty Name="allowReminder" ColumnName="allowReminder" />
+                <ScalarProperty Name="sender_userId" ColumnName="sender_userId" />
+                <ScalarProperty Name="sender_name" ColumnName="sender_name" />
+                <ScalarProperty Name="receiver_userId" ColumnName="receiver_userId" />
+                <ScalarProperty Name="receiver_name" ColumnName="receiver_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="messageCounts">
+            <EntityTypeMapping TypeName="qlumi_testModel.messageCount">
+              <MappingFragment StoreEntitySet="messageCount">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="unreadCount" ColumnName="unreadCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfileColors">
+            <EntityTypeMapping TypeName="qlumi_testModel.ProfileColor">
+              <MappingFragment StoreEntitySet="ProfileColor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="color" ColumnName="color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SettingProfiles">
+            <EntityTypeMapping TypeName="qlumi_testModel.SettingProfile">
+              <MappingFragment StoreEntitySet="SettingProfile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="profileName" ColumnName="profileName" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="colorId" ColumnName="colorId" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubCategories">
+            <EntityTypeMapping TypeName="qlumi_testModel.SubCategory">
+              <MappingFragment StoreEntitySet="SubCategory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="subCategoryName" ColumnName="subCategoryName" />
+                <ScalarProperty Name="subCategoryType" ColumnName="subCategoryType" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="iconName" ColumnName="iconName" />
+                <ScalarProperty Name="iconMarkerName" ColumnName="iconMarkerName" />
+                <ScalarProperty Name="isCustom" ColumnName="isCustom" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserContacts">
+            <EntityTypeMapping TypeName="qlumi_testModel.UserContact">
+              <MappingFragment StoreEntitySet="UserContact">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="qlumi_userId" ColumnName="qlumi_userId" />
+                <ScalarProperty Name="isVisible" ColumnName="isVisible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserGpsNotes">
+            <EntityTypeMapping TypeName="qlumi_testModel.UserGpsNote">
+              <MappingFragment StoreEntitySet="UserGpsNotes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="lati" ColumnName="lati" />
+                <ScalarProperty Name="longi" ColumnName="longi" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="sender_userId" ColumnName="sender_userId" />
+                <ScalarProperty Name="sender_name" ColumnName="sender_name" />
+                <ScalarProperty Name="isBookmark" ColumnName="isBookmark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfoes">
+            <EntityTypeMapping TypeName="qlumi_testModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="contactNumber" ColumnName="contactNumber" />
+                <ScalarProperty Name="profileImage" ColumnName="profileImage" />
+                <ScalarProperty Name="unlock_code" ColumnName="unlock_code" />
+                <ScalarProperty Name="gcm_token" ColumnName="gcm_token" />
+                <ScalarProperty Name="requestOrigin" ColumnName="requestOrigin" />
+                <ScalarProperty Name="app_version" ColumnName="app_version" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="qlumi_userId" ColumnName="qlumi_userId" />
+                <ScalarProperty Name="connectionId" ColumnName="connectionId" />
+                <ScalarProperty Name="sessionId" ColumnName="sessionId" />
+                <ScalarProperty Name="loginStatus" ColumnName="loginStatus" />
+                <ScalarProperty Name="notesInfo" ColumnName="notesInfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInterests">
+            <EntityTypeMapping TypeName="qlumi_testModel.UserInterest">
+              <MappingFragment StoreEntitySet="UserInterest">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="settingId" ColumnName="settingId" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="subCategoryId" ColumnName="subCategoryId" />
+                <ScalarProperty Name="radius" ColumnName="radius" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userLocations">
+            <EntityTypeMapping TypeName="qlumi_testModel.userLocation">
+              <MappingFragment StoreEntitySet="userLocation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="lati" ColumnName="lati" />
+                <ScalarProperty Name="longi" ColumnName="longi" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendors">
+            <EntityTypeMapping TypeName="qlumi_testModel.Vendor">
+              <MappingFragment StoreEntitySet="Vendor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="contactNumber" ColumnName="contactNumber" />
+                <ScalarProperty Name="logoImage" ColumnName="logoImage" />
+                <ScalarProperty Name="unlock_code" ColumnName="unlock_code" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="tokenLimit" ColumnName="tokenLimit" />
+                <ScalarProperty Name="currentTokenCount" ColumnName="currentTokenCount" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="unlockCodeAge" ColumnName="unlockCodeAge" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VendorInterests">
+            <EntityTypeMapping TypeName="qlumi_testModel.VendorInterest">
+              <MappingFragment StoreEntitySet="VendorInterest">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="settingId" ColumnName="settingId" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="subCategoryId" ColumnName="subCategoryId" />
+                <ScalarProperty Name="radius" ColumnName="radius" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VendorNotes">
+            <EntityTypeMapping TypeName="qlumi_testModel.VendorNote">
+              <MappingFragment StoreEntitySet="VendorNotes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="lati" ColumnName="lati" />
+                <ScalarProperty Name="longi" ColumnName="longi" />
+                <ScalarProperty Name="sender_userId" ColumnName="sender_userId" />
+                <ScalarProperty Name="sender_name" ColumnName="sender_name" />
+                <ScalarProperty Name="deliveryStatus" ColumnName="deliveryStatus" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VendorProfiles">
+            <EntityTypeMapping TypeName="qlumi_testModel.VendorProfile">
+              <MappingFragment StoreEntitySet="VendorProfile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+                <ScalarProperty Name="profileName" ColumnName="profileName" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="colorId" ColumnName="colorId" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdProgresses">
+            <EntityTypeMapping TypeName="qlumi_testModel.AdProgress">
+              <MappingFragment StoreEntitySet="AdProgress">
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="userPartialName" ColumnName="userPartialName" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="bidType" ColumnName="bidType" />
+                <ScalarProperty Name="AdId" ColumnName="AdId" />
+                <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillingInfoes">
+            <EntityTypeMapping TypeName="qlumi_testModel.BillingInfo">
+              <MappingFragment StoreEntitySet="BillingInfo">
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="totalPaid" ColumnName="totalPaid" />
+                <ScalarProperty Name="nextPaymentDate" ColumnName="nextPaymentDate" />
+                <ScalarProperty Name="lastPaymentDate" ColumnName="lastPaymentDate" />
+                <ScalarProperty Name="duePayment" ColumnName="duePayment" />
+                <ScalarProperty Name="lastMonthPayment" ColumnName="lastMonthPayment" />
+                <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillingHistories">
+            <EntityTypeMapping TypeName="qlumi_testModel.BillingHistory">
+              <MappingFragment StoreEntitySet="BillingHistory">
+                <ScalarProperty Name="paidAt" ColumnName="paidAt" />
+                <ScalarProperty Name="billingMonth" ColumnName="billingMonth" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+                <ScalarProperty Name="invoiceNo" ColumnName="invoiceNo" />
+                <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

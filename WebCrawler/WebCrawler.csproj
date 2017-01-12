@@ -1,0 +1,1646 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A6442C6D-7A45-4090-8563-085390FF6EE4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebCrawler</RootNamespace>
+    <AssemblyName>WebCrawler</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AspNet.ScriptManager.jQuery, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.1.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CodeEngine.Framework.QueryBuilder">
+      <HintPath>..\..\DentalXeven\DXLive\DentalValet\bin\CodeEngine.Framework.QueryBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\..\Desktop\WebsiteContentParser\WebsiteContentParser\bin\Debug\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.6.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.6\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.9\Assemblies\v4.5\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=3.1.9.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.3.1.9\lib\net45\Npgsql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NuGet.VisualStudio">
+      <HintPath>..\packages\NuGet.VisualStudio.3.3.0\lib\net45\NuGet.VisualStudio.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="OpenTok">
+      <HintPath>..\..\DVLive\DentalValet\bin\OpenTok.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal, Version=1.8.0.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.8.0\lib\net45\PayPal.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Amazon">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Amazon.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Apple">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Apple.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Blackberry">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Blackberry.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Core">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Firefox">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Firefox.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Google">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Windows">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz, Version=2.4.1.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quartz.2.4.1\lib\net40\Quartz.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery.UI.Combined">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.UI.Combined.1.8.24\lib\net45\AspNet.ScriptManager.jQuery.UI.Combined.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax, Version=4.5.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.4.5.6\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms, Version=4.5.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.4.5.6\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.2\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.1.4.12333\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Membership.OpenAuth, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Membership.OpenAuth.1.0.1\lib\net45\Microsoft.AspNet.Membership.OpenAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.0.0\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.0\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Manage.aspx" />
+    <Content Include="Account\OpenAuthProviders.ascx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="Bootstrap\css\bootstrap-rtl.css" />
+    <Content Include="Bootstrap\css\bootstrap-rtl.min.css" />
+    <Content Include="Bootstrap\css\bootstrap.css" />
+    <Content Include="Bootstrap\css\bootstrap.min.css" />
+    <Content Include="Bootstrap\css\plugins\morris.css" />
+    <Content Include="Bootstrap\css\sb-admin-rtl.css" />
+    <Content Include="Bootstrap\css\sb-admin.css" />
+    <Content Include="Bootstrap\font-awesome\css\font-awesome.css" />
+    <Content Include="Bootstrap\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Bootstrap\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Bootstrap\js\bootstrap.js" />
+    <Content Include="Bootstrap\js\bootstrap.min.js" />
+    <Content Include="Bootstrap\js\jquery.js" />
+    <Content Include="Bootstrap\js\plugins\flot\excanvas.min.js" />
+    <Content Include="Bootstrap\js\plugins\flot\flot-data.js" />
+    <Content Include="Bootstrap\js\plugins\flot\jquery.flot.js" />
+    <Content Include="Bootstrap\js\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="Bootstrap\js\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="Bootstrap\js\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Bootstrap\js\plugins\morris\morris-data.js" />
+    <Content Include="Bootstrap\js\plugins\morris\morris.js" />
+    <Content Include="Bootstrap\js\plugins\morris\morris.min.js" />
+    <Content Include="Bootstrap\js\plugins\morris\raphael.min.js" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Custom.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\hdpi\ic_arrow_down.png" />
+    <Content Include="Images\hdpi\ic_arrow_up.png" />
+    <Content Include="Images\hdpi\ic_bike.png" />
+    <Content Include="Images\hdpi\ic_btn_call.png" />
+    <Content Include="Images\hdpi\ic_btn_navigation.png" />
+    <Content Include="Images\hdpi\ic_btn_share.png" />
+    <Content Include="Images\hdpi\ic_btn_web.png" />
+    <Content Include="Images\hdpi\ic_car.png" />
+    <Content Include="Images\hdpi\ic_color_picker.png" />
+    <Content Include="Images\hdpi\ic_dest_pin.png" />
+    <Content Include="Images\hdpi\ic_dialog_circle_bg.png" />
+    <Content Include="Images\hdpi\ic_fab_direction.png" />
+    <Content Include="Images\hdpi\ic_fab_navigation.png" />
+    <Content Include="Images\hdpi\ic_fab_zoomin.png" />
+    <Content Include="Images\hdpi\ic_fab_zoomout.png" />
+    <Content Include="Images\hdpi\ic_heart.png" />
+    <Content Include="Images\hdpi\ic_heart_filled.png" />
+    <Content Include="Images\hdpi\ic_marker_airport_black.png" />
+    <Content Include="Images\hdpi\ic_marker_airport_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_airport_green.png" />
+    <Content Include="Images\hdpi\ic_marker_airport_red.png" />
+    <Content Include="Images\hdpi\ic_marker_amusement_park_black.png" />
+    <Content Include="Images\hdpi\ic_marker_amusement_park_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_amusement_park_green.png" />
+    <Content Include="Images\hdpi\ic_marker_amusement_park_red.png" />
+    <Content Include="Images\hdpi\ic_marker_aquarium_black.png" />
+    <Content Include="Images\hdpi\ic_marker_aquarium_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_aquarium_green.png" />
+    <Content Include="Images\hdpi\ic_marker_aquarium_red.png" />
+    <Content Include="Images\hdpi\ic_marker_atm_black.png" />
+    <Content Include="Images\hdpi\ic_marker_atm_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_atm_green.png" />
+    <Content Include="Images\hdpi\ic_marker_atm_red.png" />
+    <Content Include="Images\hdpi\ic_marker_bakery_black.png" />
+    <Content Include="Images\hdpi\ic_marker_bakery_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_bakery_green.png" />
+    <Content Include="Images\hdpi\ic_marker_bakery_red.png" />
+    <Content Include="Images\hdpi\ic_marker_bank_black.png" />
+    <Content Include="Images\hdpi\ic_marker_bank_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_bank_green.png" />
+    <Content Include="Images\hdpi\ic_marker_bank_red.png" />
+    <Content Include="Images\hdpi\ic_marker_bar_black.png" />
+    <Content Include="Images\hdpi\ic_marker_bar_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_bar_green.png" />
+    <Content Include="Images\hdpi\ic_marker_bar_red.png" />
+    <Content Include="Images\hdpi\ic_marker_beach_black.png" />
+    <Content Include="Images\hdpi\ic_marker_beach_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_beach_green.png" />
+    <Content Include="Images\hdpi\ic_marker_beach_red.png" />
+    <Content Include="Images\hdpi\ic_marker_black_pharmacy.png" />
+    <Content Include="Images\hdpi\ic_marker_blue_pharmacy.png" />
+    <Content Include="Images\hdpi\ic_marker_book_store_black.png" />
+    <Content Include="Images\hdpi\ic_marker_book_store_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_book_store_green.png" />
+    <Content Include="Images\hdpi\ic_marker_book_store_red.png" />
+    <Content Include="Images\hdpi\ic_marker_bowling_black.png" />
+    <Content Include="Images\hdpi\ic_marker_bowling_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_bowling_green.png" />
+    <Content Include="Images\hdpi\ic_marker_bowling_red.png" />
+    <Content Include="Images\hdpi\ic_marker_cafe_black.png" />
+    <Content Include="Images\hdpi\ic_marker_cafe_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_cafe_green.png" />
+    <Content Include="Images\hdpi\ic_marker_cafe_red.png" />
+    <Content Include="Images\hdpi\ic_marker_campground_black.png" />
+    <Content Include="Images\hdpi\ic_marker_campground_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_campground_green.png" />
+    <Content Include="Images\hdpi\ic_marker_campground_red.png" />
+    <Content Include="Images\hdpi\ic_marker_car_wash_black.png" />
+    <Content Include="Images\hdpi\ic_marker_car_wash_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_car_wash_green.png" />
+    <Content Include="Images\hdpi\ic_marker_car_wash_red.png" />
+    <Content Include="Images\hdpi\ic_marker_casino_black.png" />
+    <Content Include="Images\hdpi\ic_marker_casino_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_casino_green.png" />
+    <Content Include="Images\hdpi\ic_marker_casino_red.png" />
+    <Content Include="Images\hdpi\ic_marker_church_black.png" />
+    <Content Include="Images\hdpi\ic_marker_church_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_church_green.png" />
+    <Content Include="Images\hdpi\ic_marker_church_red.png" />
+    <Content Include="Images\hdpi\ic_marker_civic_event_black.png" />
+    <Content Include="Images\hdpi\ic_marker_civic_event_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_civic_event_green.png" />
+    <Content Include="Images\hdpi\ic_marker_civic_event_red.png" />
+    <Content Include="Images\hdpi\ic_marker_clothing_fashion_black.png" />
+    <Content Include="Images\hdpi\ic_marker_clothing_fashion_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_clothing_fashion_green.png" />
+    <Content Include="Images\hdpi\ic_marker_clothing_fashion_red.png" />
+    <Content Include="Images\hdpi\ic_marker_club_black.png" />
+    <Content Include="Images\hdpi\ic_marker_club_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_club_green.png" />
+    <Content Include="Images\hdpi\ic_marker_club_red.png" />
+    <Content Include="Images\hdpi\ic_marker_convenience_store_black.png" />
+    <Content Include="Images\hdpi\ic_marker_convenience_store_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_convenience_store_green.png" />
+    <Content Include="Images\hdpi\ic_marker_convenience_store_red.png" />
+    <Content Include="Images\hdpi\ic_marker_custom_black.png" />
+    <Content Include="Images\hdpi\ic_marker_custom_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_custom_green.png" />
+    <Content Include="Images\hdpi\ic_marker_custom_red.png" />
+    <Content Include="Images\hdpi\ic_marker_electronics_store_black.png" />
+    <Content Include="Images\hdpi\ic_marker_electronics_store_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_electronics_store_green.png" />
+    <Content Include="Images\hdpi\ic_marker_electronics_store_red.png" />
+    <Content Include="Images\hdpi\ic_marker_entertainment_black.png" />
+    <Content Include="Images\hdpi\ic_marker_entertainment_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_entertainment_green.png" />
+    <Content Include="Images\hdpi\ic_marker_entertainment_red.png" />
+    <Content Include="Images\hdpi\ic_marker_fire_station_black.png" />
+    <Content Include="Images\hdpi\ic_marker_fire_station_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_fire_station_green.png" />
+    <Content Include="Images\hdpi\ic_marker_fire_station_red.png" />
+    <Content Include="Images\hdpi\ic_marker_florist_black.png" />
+    <Content Include="Images\hdpi\ic_marker_florist_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_florist_green.png" />
+    <Content Include="Images\hdpi\ic_marker_florist_red.png" />
+    <Content Include="Images\hdpi\ic_marker_food_store_black.png" />
+    <Content Include="Images\hdpi\ic_marker_food_store_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_food_store_green.png" />
+    <Content Include="Images\hdpi\ic_marker_food_store_red.png" />
+    <Content Include="Images\hdpi\ic_marker_free_wifi_black.png" />
+    <Content Include="Images\hdpi\ic_marker_free_wifi_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_free_wifi_green.png" />
+    <Content Include="Images\hdpi\ic_marker_free_wifi_red.png" />
+    <Content Include="Images\hdpi\ic_marker_gas_station_black.png" />
+    <Content Include="Images\hdpi\ic_marker_gas_station_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_gas_station_green.png" />
+    <Content Include="Images\hdpi\ic_marker_gas_station_red.png" />
+    <Content Include="Images\hdpi\ic_marker_golf_black.png" />
+    <Content Include="Images\hdpi\ic_marker_golf_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_golf_green.png" />
+    <Content Include="Images\hdpi\ic_marker_golf_red.png" />
+    <Content Include="Images\hdpi\ic_marker_green_pharmacy.png" />
+    <Content Include="Images\hdpi\ic_marker_grocery_black.png" />
+    <Content Include="Images\hdpi\ic_marker_grocery_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_grocery_green.png" />
+    <Content Include="Images\hdpi\ic_marker_grocery_red.png" />
+    <Content Include="Images\hdpi\ic_marker_gym_black.png" />
+    <Content Include="Images\hdpi\ic_marker_gym_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_gym_green.png" />
+    <Content Include="Images\hdpi\ic_marker_gym_red.png" />
+    <Content Include="Images\hdpi\ic_marker_hair_salon_black.png" />
+    <Content Include="Images\hdpi\ic_marker_hair_salon_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_hair_salon_green.png" />
+    <Content Include="Images\hdpi\ic_marker_hair_salon_red.png" />
+    <Content Include="Images\hdpi\ic_marker_health_black.png" />
+    <Content Include="Images\hdpi\ic_marker_health_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_health_food_store_black.png" />
+    <Content Include="Images\hdpi\ic_marker_health_food_store_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_health_food_store_green.png" />
+    <Content Include="Images\hdpi\ic_marker_health_food_store_red.png" />
+    <Content Include="Images\hdpi\ic_marker_health_green.png" />
+    <Content Include="Images\hdpi\ic_marker_health_red.png" />
+    <Content Include="Images\hdpi\ic_marker_hospital_black.png" />
+    <Content Include="Images\hdpi\ic_marker_hospital_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_hospital_green.png" />
+    <Content Include="Images\hdpi\ic_marker_hospital_red.png" />
+    <Content Include="Images\hdpi\ic_marker_hotel_black.png" />
+    <Content Include="Images\hdpi\ic_marker_hotel_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_hotel_green.png" />
+    <Content Include="Images\hdpi\ic_marker_hotel_red.png" />
+    <Content Include="Images\hdpi\ic_marker_kids_black.png" />
+    <Content Include="Images\hdpi\ic_marker_kids_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_kids_green.png" />
+    <Content Include="Images\hdpi\ic_marker_kids_red.png" />
+    <Content Include="Images\hdpi\ic_marker_library_black.png" />
+    <Content Include="Images\hdpi\ic_marker_library_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_library_green.png" />
+    <Content Include="Images\hdpi\ic_marker_library_red.png" />
+    <Content Include="Images\hdpi\ic_marker_liquor_store_black.png" />
+    <Content Include="Images\hdpi\ic_marker_liquor_store_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_liquor_store_green.png" />
+    <Content Include="Images\hdpi\ic_marker_liquor_store_red.png" />
+    <Content Include="Images\hdpi\ic_marker_live_band_black.png" />
+    <Content Include="Images\hdpi\ic_marker_live_band_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_live_band_green.png" />
+    <Content Include="Images\hdpi\ic_marker_live_band_red.png" />
+    <Content Include="Images\hdpi\ic_marker_local_history_black.png" />
+    <Content Include="Images\hdpi\ic_marker_local_history_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_local_history_green.png" />
+    <Content Include="Images\hdpi\ic_marker_local_history_red.png" />
+    <Content Include="Images\hdpi\ic_marker_local_photos_black.png" />
+    <Content Include="Images\hdpi\ic_marker_local_photos_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_local_photos_green.png" />
+    <Content Include="Images\hdpi\ic_marker_local_photos_red.png" />
+    <Content Include="Images\hdpi\ic_marker_local_videos_black.png" />
+    <Content Include="Images\hdpi\ic_marker_local_videos_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_local_videos_green.png" />
+    <Content Include="Images\hdpi\ic_marker_local_videos_red.png" />
+    <Content Include="Images\hdpi\ic_marker_mall_black.png" />
+    <Content Include="Images\hdpi\ic_marker_mall_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_mall_green.png" />
+    <Content Include="Images\hdpi\ic_marker_mall_red.png" />
+    <Content Include="Images\hdpi\ic_marker_mosque_black.png" />
+    <Content Include="Images\hdpi\ic_marker_mosque_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_mosque_green.png" />
+    <Content Include="Images\hdpi\ic_marker_mosque_red.png" />
+    <Content Include="Images\hdpi\ic_marker_motel_black.png" />
+    <Content Include="Images\hdpi\ic_marker_motel_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_motel_green.png" />
+    <Content Include="Images\hdpi\ic_marker_motel_red.png" />
+    <Content Include="Images\hdpi\ic_marker_movie_black.png" />
+    <Content Include="Images\hdpi\ic_marker_movie_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_movie_green.png" />
+    <Content Include="Images\hdpi\ic_marker_movie_red.png" />
+    <Content Include="Images\hdpi\ic_marker_museum_black.png" />
+    <Content Include="Images\hdpi\ic_marker_museum_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_museum_green.png" />
+    <Content Include="Images\hdpi\ic_marker_museum_red.png" />
+    <Content Include="Images\hdpi\ic_marker_my_photos_black.png" />
+    <Content Include="Images\hdpi\ic_marker_my_photos_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_my_photos_green.png" />
+    <Content Include="Images\hdpi\ic_marker_my_photos_red.png" />
+    <Content Include="Images\hdpi\ic_marker_parking_black.png" />
+    <Content Include="Images\hdpi\ic_marker_parking_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_parking_green.png" />
+    <Content Include="Images\hdpi\ic_marker_parking_red.png" />
+    <Content Include="Images\hdpi\ic_marker_park_black.png" />
+    <Content Include="Images\hdpi\ic_marker_park_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_park_green.png" />
+    <Content Include="Images\hdpi\ic_marker_park_red.png" />
+    <Content Include="Images\hdpi\ic_marker_personal_care_black.png" />
+    <Content Include="Images\hdpi\ic_marker_personal_care_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_personal_care_green.png" />
+    <Content Include="Images\hdpi\ic_marker_personal_care_red.png" />
+    <Content Include="Images\hdpi\ic_marker_pharmacy_black.png" />
+    <Content Include="Images\hdpi\ic_marker_pharmacy_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_pharmacy_green.png" />
+    <Content Include="Images\hdpi\ic_marker_pharmacy_red.png" />
+    <Content Include="Images\hdpi\ic_marker_pizza_black.png" />
+    <Content Include="Images\hdpi\ic_marker_pizza_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_pizza_green.png" />
+    <Content Include="Images\hdpi\ic_marker_pizza_red.png" />
+    <Content Include="Images\hdpi\ic_marker_playground_black.png" />
+    <Content Include="Images\hdpi\ic_marker_playground_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_playground_green.png" />
+    <Content Include="Images\hdpi\ic_marker_playground_red.png" />
+    <Content Include="Images\hdpi\ic_marker_police_black.png" />
+    <Content Include="Images\hdpi\ic_marker_police_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_police_green.png" />
+    <Content Include="Images\hdpi\ic_marker_police_red.png" />
+    <Content Include="Images\hdpi\ic_marker_post_office_black.png" />
+    <Content Include="Images\hdpi\ic_marker_post_office_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_post_office_green.png" />
+    <Content Include="Images\hdpi\ic_marker_post_office_red.png" />
+    <Content Include="Images\hdpi\ic_marker_public_pools_black.png" />
+    <Content Include="Images\hdpi\ic_marker_public_pools_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_public_pools_green.png" />
+    <Content Include="Images\hdpi\ic_marker_public_pools_red.png" />
+    <Content Include="Images\hdpi\ic_marker_public_restroom_black.png" />
+    <Content Include="Images\hdpi\ic_marker_public_restroom_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_public_restroom_green.png" />
+    <Content Include="Images\hdpi\ic_marker_public_restroom_red.png" />
+    <Content Include="Images\hdpi\ic_marker_public_service_black.png" />
+    <Content Include="Images\hdpi\ic_marker_public_service_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_public_service_green.png" />
+    <Content Include="Images\hdpi\ic_marker_public_service_red.png" />
+    <Content Include="Images\hdpi\ic_marker_pub_black.png" />
+    <Content Include="Images\hdpi\ic_marker_pub_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_pub_green.png" />
+    <Content Include="Images\hdpi\ic_marker_pub_red.png" />
+    <Content Include="Images\hdpi\ic_marker_red_pharmacy.png" />
+    <Content Include="Images\hdpi\ic_marker_restaurant_black.png" />
+    <Content Include="Images\hdpi\ic_marker_restaurant_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_restaurant_green.png" />
+    <Content Include="Images\hdpi\ic_marker_restaurant_red.png" />
+    <Content Include="Images\hdpi\ic_marker_sale_black.png" />
+    <Content Include="Images\hdpi\ic_marker_sale_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_sale_green.png" />
+    <Content Include="Images\hdpi\ic_marker_sale_red.png" />
+    <Content Include="Images\hdpi\ic_marker_school_college_university_black.png" />
+    <Content Include="Images\hdpi\ic_marker_school_college_university_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_school_college_university_green.png" />
+    <Content Include="Images\hdpi\ic_marker_school_college_university_red.png" />
+    <Content Include="Images\hdpi\ic_marker_shopping_black.png" />
+    <Content Include="Images\hdpi\ic_marker_shopping_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_shopping_green.png" />
+    <Content Include="Images\hdpi\ic_marker_shopping_red.png" />
+    <Content Include="Images\hdpi\ic_marker_spa_black.png" />
+    <Content Include="Images\hdpi\ic_marker_spa_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_spa_green.png" />
+    <Content Include="Images\hdpi\ic_marker_spa_red.png" />
+    <Content Include="Images\hdpi\ic_marker_sports_black.png" />
+    <Content Include="Images\hdpi\ic_marker_sports_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_sports_green.png" />
+    <Content Include="Images\hdpi\ic_marker_sports_red.png" />
+    <Content Include="Images\hdpi\ic_marker_stadium_black.png" />
+    <Content Include="Images\hdpi\ic_marker_stadium_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_stadium_green.png" />
+    <Content Include="Images\hdpi\ic_marker_stadium_red.png" />
+    <Content Include="Images\hdpi\ic_marker_station_black.png" />
+    <Content Include="Images\hdpi\ic_marker_station_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_station_green.png" />
+    <Content Include="Images\hdpi\ic_marker_station_red.png" />
+    <Content Include="Images\hdpi\ic_marker_synagogue_black.png" />
+    <Content Include="Images\hdpi\ic_marker_synagogue_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_synagogue_green.png" />
+    <Content Include="Images\hdpi\ic_marker_synagogue_red.png" />
+    <Content Include="Images\hdpi\ic_marker_temple_black.png" />
+    <Content Include="Images\hdpi\ic_marker_temple_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_temple_green.png" />
+    <Content Include="Images\hdpi\ic_marker_temple_red.png" />
+    <Content Include="Images\hdpi\ic_marker_tennis_black.png" />
+    <Content Include="Images\hdpi\ic_marker_tennis_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_tennis_green.png" />
+    <Content Include="Images\hdpi\ic_marker_tennis_red.png" />
+    <Content Include="Images\hdpi\ic_marker_theater_black.png" />
+    <Content Include="Images\hdpi\ic_marker_theater_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_theater_green.png" />
+    <Content Include="Images\hdpi\ic_marker_theater_red.png" />
+    <Content Include="Images\hdpi\ic_marker_travel_black.png" />
+    <Content Include="Images\hdpi\ic_marker_travel_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_travel_green.png" />
+    <Content Include="Images\hdpi\ic_marker_travel_red.png" />
+    <Content Include="Images\hdpi\ic_marker_urgent_care_black.png" />
+    <Content Include="Images\hdpi\ic_marker_urgent_care_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_urgent_care_green.png" />
+    <Content Include="Images\hdpi\ic_marker_urgent_care_red.png" />
+    <Content Include="Images\hdpi\ic_marker_veterinary_hospital_black.png" />
+    <Content Include="Images\hdpi\ic_marker_veterinary_hospital_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_veterinary_hospital_green.png" />
+    <Content Include="Images\hdpi\ic_marker_veterinary_hospital_red.png" />
+    <Content Include="Images\hdpi\ic_marker_water_park_black.png" />
+    <Content Include="Images\hdpi\ic_marker_water_park_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_water_park_green.png" />
+    <Content Include="Images\hdpi\ic_marker_water_park_red.png" />
+    <Content Include="Images\hdpi\ic_marker_worship_black.png" />
+    <Content Include="Images\hdpi\ic_marker_worship_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_worship_green.png" />
+    <Content Include="Images\hdpi\ic_marker_worship_red.png" />
+    <Content Include="Images\hdpi\ic_marker_zoo_black.png" />
+    <Content Include="Images\hdpi\ic_marker_zoo_blue.png" />
+    <Content Include="Images\hdpi\ic_marker_zoo_green.png" />
+    <Content Include="Images\hdpi\ic_marker_zoo_red.png" />
+    <Content Include="Images\hdpi\ic_menu_add_profile.png" />
+    <Content Include="Images\hdpi\ic_menu_booknark.png" />
+    <Content Include="Images\hdpi\ic_menu_delete_profile.png" />
+    <Content Include="Images\hdpi\ic_menu_help.png" />
+    <Content Include="Images\hdpi\ic_menu_list.png" />
+    <Content Include="Images\hdpi\ic_menu_navigation.png" />
+    <Content Include="Images\hdpi\ic_menu_nearby.png" />
+    <Content Include="Images\hdpi\ic_menu_search.png" />
+    <Content Include="Images\hdpi\ic_menu_settings.png" />
+    <Content Include="Images\hdpi\ic_menu_tour.png" />
+    <Content Include="Images\hdpi\ic_minus.png" />
+    <Content Include="Images\hdpi\ic_navigation_arrow_forward.png" />
+    <Content Include="Images\hdpi\ic_navigation_check.png" />
+    <Content Include="Images\hdpi\ic_phoneframe.png" />
+    <Content Include="Images\hdpi\ic_radius_drag_marker.png" />
+    <Content Include="Images\hdpi\ic_register_bg.png" />
+    <Content Include="Images\hdpi\ic_relocate_current_location.png" />
+    <Content Include="Images\hdpi\ic_setting_airport_black.png" />
+    <Content Include="Images\hdpi\ic_setting_airport_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_airport_green.png" />
+    <Content Include="Images\hdpi\ic_setting_airport_red.png" />
+    <Content Include="Images\hdpi\ic_setting_amusementpark_black.png" />
+    <Content Include="Images\hdpi\ic_setting_amusementpark_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_amusementpark_green.png" />
+    <Content Include="Images\hdpi\ic_setting_amusementpark_red.png" />
+    <Content Include="Images\hdpi\ic_setting_aquarium_black.png" />
+    <Content Include="Images\hdpi\ic_setting_aquarium_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_aquarium_green.png" />
+    <Content Include="Images\hdpi\ic_setting_aquarium_red.png" />
+    <Content Include="Images\hdpi\ic_setting_atm_black.png" />
+    <Content Include="Images\hdpi\ic_setting_atm_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_atm_green.png" />
+    <Content Include="Images\hdpi\ic_setting_atm_red.png" />
+    <Content Include="Images\hdpi\ic_setting_bakery_black.png" />
+    <Content Include="Images\hdpi\ic_setting_bakery_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_bakery_green.png" />
+    <Content Include="Images\hdpi\ic_setting_bakery_red.png" />
+    <Content Include="Images\hdpi\ic_setting_bank_black.png" />
+    <Content Include="Images\hdpi\ic_setting_bank_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_bank_green.png" />
+    <Content Include="Images\hdpi\ic_setting_bank_red.png" />
+    <Content Include="Images\hdpi\ic_setting_bar_black.png" />
+    <Content Include="Images\hdpi\ic_setting_bar_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_bar_green.png" />
+    <Content Include="Images\hdpi\ic_setting_bar_red.png" />
+    <Content Include="Images\hdpi\ic_setting_beach_black.png" />
+    <Content Include="Images\hdpi\ic_setting_beach_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_beach_green.png" />
+    <Content Include="Images\hdpi\ic_setting_beach_red.png" />
+    <Content Include="Images\hdpi\ic_setting_bg3.9.png" />
+    <Content Include="Images\hdpi\ic_setting_bookstore_black.png" />
+    <Content Include="Images\hdpi\ic_setting_bookstore_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_bookstore_green.png" />
+    <Content Include="Images\hdpi\ic_setting_bookstore_red.png" />
+    <Content Include="Images\hdpi\ic_setting_bowling_black.png" />
+    <Content Include="Images\hdpi\ic_setting_bowling_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_bowling_green.png" />
+    <Content Include="Images\hdpi\ic_setting_bowling_red.png" />
+    <Content Include="Images\hdpi\ic_setting_cafe_black.png" />
+    <Content Include="Images\hdpi\ic_setting_cafe_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_cafe_green.png" />
+    <Content Include="Images\hdpi\ic_setting_cafe_red.png" />
+    <Content Include="Images\hdpi\ic_setting_campground_black.png" />
+    <Content Include="Images\hdpi\ic_setting_campground_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_campground_green.png" />
+    <Content Include="Images\hdpi\ic_setting_campground_red.png" />
+    <Content Include="Images\hdpi\ic_setting_carwash_black.png" />
+    <Content Include="Images\hdpi\ic_setting_carwash_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_carwash_green.png" />
+    <Content Include="Images\hdpi\ic_setting_carwash_red.png" />
+    <Content Include="Images\hdpi\ic_setting_casino_black.png" />
+    <Content Include="Images\hdpi\ic_setting_casino_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_casino_green.png" />
+    <Content Include="Images\hdpi\ic_setting_casino_red.png" />
+    <Content Include="Images\hdpi\ic_setting_church_black.png" />
+    <Content Include="Images\hdpi\ic_setting_church_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_church_green.png" />
+    <Content Include="Images\hdpi\ic_setting_church_red.png" />
+    <Content Include="Images\hdpi\ic_setting_civicevent_black.png" />
+    <Content Include="Images\hdpi\ic_setting_civicevent_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_civicevent_green.png" />
+    <Content Include="Images\hdpi\ic_setting_civicevent_red.png" />
+    <Content Include="Images\hdpi\ic_setting_clothingfashion_black.png" />
+    <Content Include="Images\hdpi\ic_setting_clothingfashion_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_clothingfashion_green.png" />
+    <Content Include="Images\hdpi\ic_setting_clothingfashion_red.png" />
+    <Content Include="Images\hdpi\ic_setting_club_black.png" />
+    <Content Include="Images\hdpi\ic_setting_club_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_club_green.png" />
+    <Content Include="Images\hdpi\ic_setting_club_red.png" />
+    <Content Include="Images\hdpi\ic_setting_conveniencestore_black.png" />
+    <Content Include="Images\hdpi\ic_setting_conveniencestore_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_conveniencestore_green.png" />
+    <Content Include="Images\hdpi\ic_setting_conveniencestore_red.png" />
+    <Content Include="Images\hdpi\ic_setting_electronicsstore_black.png" />
+    <Content Include="Images\hdpi\ic_setting_electronicsstore_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_electronicsstore_green.png" />
+    <Content Include="Images\hdpi\ic_setting_electronicsstore_red.png" />
+    <Content Include="Images\hdpi\ic_setting_entertainment_black.png" />
+    <Content Include="Images\hdpi\ic_setting_entertainment_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_entertainment_green.png" />
+    <Content Include="Images\hdpi\ic_setting_entertainment_red.png" />
+    <Content Include="Images\hdpi\ic_setting_firestation_black.png" />
+    <Content Include="Images\hdpi\ic_setting_firestation_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_firestation_green.png" />
+    <Content Include="Images\hdpi\ic_setting_firestation_red.png" />
+    <Content Include="Images\hdpi\ic_setting_florist_black.png" />
+    <Content Include="Images\hdpi\ic_setting_florist_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_florist_green.png" />
+    <Content Include="Images\hdpi\ic_setting_florist_red.png" />
+    <Content Include="Images\hdpi\ic_setting_foodstorel_black.png" />
+    <Content Include="Images\hdpi\ic_setting_foodstorel_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_foodstorel_green.png" />
+    <Content Include="Images\hdpi\ic_setting_foodstorel_red.png" />
+    <Content Include="Images\hdpi\ic_setting_freewifi_black.png" />
+    <Content Include="Images\hdpi\ic_setting_freewifi_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_freewifi_green.png" />
+    <Content Include="Images\hdpi\ic_setting_freewifi_red.png" />
+    <Content Include="Images\hdpi\ic_setting_gasstation_black.png" />
+    <Content Include="Images\hdpi\ic_setting_gasstation_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_gasstation_green.png" />
+    <Content Include="Images\hdpi\ic_setting_gasstation_red.png" />
+    <Content Include="Images\hdpi\ic_setting_golf_black.png" />
+    <Content Include="Images\hdpi\ic_setting_golf_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_golf_green.png" />
+    <Content Include="Images\hdpi\ic_setting_golf_red.png" />
+    <Content Include="Images\hdpi\ic_setting_grocery_black.png" />
+    <Content Include="Images\hdpi\ic_setting_grocery_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_grocery_green.png" />
+    <Content Include="Images\hdpi\ic_setting_grocery_red.png" />
+    <Content Include="Images\hdpi\ic_setting_gym_black.png" />
+    <Content Include="Images\hdpi\ic_setting_gym_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_gym_green.png" />
+    <Content Include="Images\hdpi\ic_setting_gym_red.png" />
+    <Content Include="Images\hdpi\ic_setting_hairsalon_black.png" />
+    <Content Include="Images\hdpi\ic_setting_hairsalon_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_hairsalon_green.png" />
+    <Content Include="Images\hdpi\ic_setting_hairsalon_red.png" />
+    <Content Include="Images\hdpi\ic_setting_healthfoodstore_black.png" />
+    <Content Include="Images\hdpi\ic_setting_healthfoodstore_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_healthfoodstore_green.png" />
+    <Content Include="Images\hdpi\ic_setting_healthfoodstore_red.png" />
+    <Content Include="Images\hdpi\ic_setting_health_black.png" />
+    <Content Include="Images\hdpi\ic_setting_health_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_health_green.png" />
+    <Content Include="Images\hdpi\ic_setting_health_red.png" />
+    <Content Include="Images\hdpi\ic_setting_hospital_black.png" />
+    <Content Include="Images\hdpi\ic_setting_hospital_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_hospital_green.png" />
+    <Content Include="Images\hdpi\ic_setting_hospital_red.png" />
+    <Content Include="Images\hdpi\ic_setting_hotel_black.png" />
+    <Content Include="Images\hdpi\ic_setting_hotel_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_hotel_green.png" />
+    <Content Include="Images\hdpi\ic_setting_hotel_red.png" />
+    <Content Include="Images\hdpi\ic_setting_kids_black.png" />
+    <Content Include="Images\hdpi\ic_setting_kids_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_kids_green.png" />
+    <Content Include="Images\hdpi\ic_setting_kids_red.png" />
+    <Content Include="Images\hdpi\ic_setting_library_black.png" />
+    <Content Include="Images\hdpi\ic_setting_library_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_library_green.png" />
+    <Content Include="Images\hdpi\ic_setting_library_red.png" />
+    <Content Include="Images\hdpi\ic_setting_liquorstore_black.png" />
+    <Content Include="Images\hdpi\ic_setting_liquorstore_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_liquorstore_green.png" />
+    <Content Include="Images\hdpi\ic_setting_liquorstore_red.png" />
+    <Content Include="Images\hdpi\ic_setting_liveband_black.png" />
+    <Content Include="Images\hdpi\ic_setting_liveband_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_liveband_green.png" />
+    <Content Include="Images\hdpi\ic_setting_liveband_red.png" />
+    <Content Include="Images\hdpi\ic_setting_localhistory_black.png" />
+    <Content Include="Images\hdpi\ic_setting_localhistory_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_localhistory_green.png" />
+    <Content Include="Images\hdpi\ic_setting_localhistory_red.png" />
+    <Content Include="Images\hdpi\ic_setting_localphotos_black.png" />
+    <Content Include="Images\hdpi\ic_setting_localphotos_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_localphotos_green.png" />
+    <Content Include="Images\hdpi\ic_setting_localphotos_red.png" />
+    <Content Include="Images\hdpi\ic_setting_localvideos_black.png" />
+    <Content Include="Images\hdpi\ic_setting_localvideos_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_localvideos_green.png" />
+    <Content Include="Images\hdpi\ic_setting_localvideos_red.png" />
+    <Content Include="Images\hdpi\ic_setting_mall_black.png" />
+    <Content Include="Images\hdpi\ic_setting_mall_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_mall_green.png" />
+    <Content Include="Images\hdpi\ic_setting_mall_red.png" />
+    <Content Include="Images\hdpi\ic_setting_mosque_black.png" />
+    <Content Include="Images\hdpi\ic_setting_mosque_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_mosque_green.png" />
+    <Content Include="Images\hdpi\ic_setting_mosque_red.png" />
+    <Content Include="Images\hdpi\ic_setting_motel_black.png" />
+    <Content Include="Images\hdpi\ic_setting_motel_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_motel_green.png" />
+    <Content Include="Images\hdpi\ic_setting_motel_red.png" />
+    <Content Include="Images\hdpi\ic_setting_movies_black.png" />
+    <Content Include="Images\hdpi\ic_setting_movies_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_movies_green.png" />
+    <Content Include="Images\hdpi\ic_setting_movies_red.png" />
+    <Content Include="Images\hdpi\ic_setting_museum_black.png" />
+    <Content Include="Images\hdpi\ic_setting_museum_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_museum_green.png" />
+    <Content Include="Images\hdpi\ic_setting_museum_red.png" />
+    <Content Include="Images\hdpi\ic_setting_myphotos_black.png" />
+    <Content Include="Images\hdpi\ic_setting_myphotos_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_myphotos_green.png" />
+    <Content Include="Images\hdpi\ic_setting_myphotos_red.png" />
+    <Content Include="Images\hdpi\ic_setting_parking_black.png" />
+    <Content Include="Images\hdpi\ic_setting_parking_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_parking_green.png" />
+    <Content Include="Images\hdpi\ic_setting_parking_red.png" />
+    <Content Include="Images\hdpi\ic_setting_park_black.png" />
+    <Content Include="Images\hdpi\ic_setting_park_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_park_green.png" />
+    <Content Include="Images\hdpi\ic_setting_park_red.png" />
+    <Content Include="Images\hdpi\ic_setting_personalcare_black.png" />
+    <Content Include="Images\hdpi\ic_setting_personalcare_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_personalcare_green.png" />
+    <Content Include="Images\hdpi\ic_setting_personalcare_red.png" />
+    <Content Include="Images\hdpi\ic_setting_pharmacy_black.png" />
+    <Content Include="Images\hdpi\ic_setting_pharmacy_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_pharmacy_green.png" />
+    <Content Include="Images\hdpi\ic_setting_pharmacy_red.png" />
+    <Content Include="Images\hdpi\ic_setting_pizza_black.png" />
+    <Content Include="Images\hdpi\ic_setting_pizza_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_pizza_green.png" />
+    <Content Include="Images\hdpi\ic_setting_pizza_red.png" />
+    <Content Include="Images\hdpi\ic_setting_playground_black.png" />
+    <Content Include="Images\hdpi\ic_setting_playground_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_playground_green.png" />
+    <Content Include="Images\hdpi\ic_setting_playground_red.png" />
+    <Content Include="Images\hdpi\ic_setting_police_black.png" />
+    <Content Include="Images\hdpi\ic_setting_police_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_police_green.png" />
+    <Content Include="Images\hdpi\ic_setting_police_red.png" />
+    <Content Include="Images\hdpi\ic_setting_postoffice_black.png" />
+    <Content Include="Images\hdpi\ic_setting_postoffice_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_postoffice_green.png" />
+    <Content Include="Images\hdpi\ic_setting_postoffice_red.png" />
+    <Content Include="Images\hdpi\ic_setting_publicpools_black.png" />
+    <Content Include="Images\hdpi\ic_setting_publicpools_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_publicpools_green.png" />
+    <Content Include="Images\hdpi\ic_setting_publicpools_red.png" />
+    <Content Include="Images\hdpi\ic_setting_publicrestroom_black.png" />
+    <Content Include="Images\hdpi\ic_setting_publicrestroom_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_publicrestroom_green.png" />
+    <Content Include="Images\hdpi\ic_setting_publicrestroom_red.png" />
+    <Content Include="Images\hdpi\ic_setting_publicservice_black.png" />
+    <Content Include="Images\hdpi\ic_setting_publicservice_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_publicservice_green.png" />
+    <Content Include="Images\hdpi\ic_setting_publicservice_red.png" />
+    <Content Include="Images\hdpi\ic_setting_pub_black.png" />
+    <Content Include="Images\hdpi\ic_setting_pub_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_pub_green.png" />
+    <Content Include="Images\hdpi\ic_setting_pub_red.png" />
+    <Content Include="Images\hdpi\ic_setting_restaurant_black.png" />
+    <Content Include="Images\hdpi\ic_setting_restaurant_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_restaurant_green.png" />
+    <Content Include="Images\hdpi\ic_setting_restaurant_red.png" />
+    <Content Include="Images\hdpi\ic_setting_sale_black.png" />
+    <Content Include="Images\hdpi\ic_setting_sale_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_sale_green.png" />
+    <Content Include="Images\hdpi\ic_setting_sale_red.png" />
+    <Content Include="Images\hdpi\ic_setting_schoolcollegeuiniversity_black.png" />
+    <Content Include="Images\hdpi\ic_setting_schoolcollegeuiniversity_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_schoolcollegeuiniversity_green.png" />
+    <Content Include="Images\hdpi\ic_setting_schoolcollegeuiniversity_red.png" />
+    <Content Include="Images\hdpi\ic_setting_shopping_black.png" />
+    <Content Include="Images\hdpi\ic_setting_shopping_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_shopping_green.png" />
+    <Content Include="Images\hdpi\ic_setting_shopping_red.png" />
+    <Content Include="Images\hdpi\ic_setting_spa_black.png" />
+    <Content Include="Images\hdpi\ic_setting_spa_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_spa_green.png" />
+    <Content Include="Images\hdpi\ic_setting_spa_red.png" />
+    <Content Include="Images\hdpi\ic_setting_sports_black.png" />
+    <Content Include="Images\hdpi\ic_setting_sports_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_sports_green.png" />
+    <Content Include="Images\hdpi\ic_setting_sports_red.png" />
+    <Content Include="Images\hdpi\ic_setting_stadium_black.png" />
+    <Content Include="Images\hdpi\ic_setting_stadium_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_stadium_green.png" />
+    <Content Include="Images\hdpi\ic_setting_stadium_red.png" />
+    <Content Include="Images\hdpi\ic_setting_station_black.png" />
+    <Content Include="Images\hdpi\ic_setting_station_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_station_green.png" />
+    <Content Include="Images\hdpi\ic_setting_station_red.png" />
+    <Content Include="Images\hdpi\ic_setting_synagogue_black.png" />
+    <Content Include="Images\hdpi\ic_setting_synagogue_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_synagogue_green.png" />
+    <Content Include="Images\hdpi\ic_setting_synagogue_red.png" />
+    <Content Include="Images\hdpi\ic_setting_temple_black.png" />
+    <Content Include="Images\hdpi\ic_setting_temple_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_temple_green.png" />
+    <Content Include="Images\hdpi\ic_setting_temple_red.png" />
+    <Content Include="Images\hdpi\ic_setting_tennis_black.png" />
+    <Content Include="Images\hdpi\ic_setting_tennis_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_tennis_green.png" />
+    <Content Include="Images\hdpi\ic_setting_tennis_red.png" />
+    <Content Include="Images\hdpi\ic_setting_theater_black.png" />
+    <Content Include="Images\hdpi\ic_setting_theater_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_theater_green.png" />
+    <Content Include="Images\hdpi\ic_setting_theater_red.png" />
+    <Content Include="Images\hdpi\ic_setting_travel_black.png" />
+    <Content Include="Images\hdpi\ic_setting_travel_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_travel_green.png" />
+    <Content Include="Images\hdpi\ic_setting_travel_red.png" />
+    <Content Include="Images\hdpi\ic_setting_urgentcare_black.png" />
+    <Content Include="Images\hdpi\ic_setting_urgentcare_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_urgentcare_green.png" />
+    <Content Include="Images\hdpi\ic_setting_urgentcare_red.png" />
+    <Content Include="Images\hdpi\ic_setting_veterinaryhospital_black.png" />
+    <Content Include="Images\hdpi\ic_setting_veterinaryhospital_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_veterinaryhospital_green.png" />
+    <Content Include="Images\hdpi\ic_setting_veterinaryhospital_red.png" />
+    <Content Include="Images\hdpi\ic_setting_waterpark_black.png" />
+    <Content Include="Images\hdpi\ic_setting_waterpark_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_waterpark_green.png" />
+    <Content Include="Images\hdpi\ic_setting_waterpark_red.png" />
+    <Content Include="Images\hdpi\ic_setting_worship_black.png" />
+    <Content Include="Images\hdpi\ic_setting_worship_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_worship_green.png" />
+    <Content Include="Images\hdpi\ic_setting_worship_red.png" />
+    <Content Include="Images\hdpi\ic_setting_zoo_black.png" />
+    <Content Include="Images\hdpi\ic_setting_zoo_blue.png" />
+    <Content Include="Images\hdpi\ic_setting_zoo_green.png" />
+    <Content Include="Images\hdpi\ic_setting_zoo_red.png" />
+    <Content Include="Images\hdpi\ic_splash.png" />
+    <Content Include="Images\hdpi\ic_splash_icon.png" />
+    <Content Include="Images\hdpi\ic_src_pin.png" />
+    <Content Include="Images\hdpi\ic_train.png" />
+    <Content Include="Images\hdpi\ic_user_pin.png" />
+    <Content Include="Images\hdpi\ic_walk.png" />
+    <Content Include="Images\hdpi\word_map1.jpg" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\test.png" />
+    <Content Include="intro\images\Qlumi_1024_small.png" />
+    <Content Include="intro\Unlock.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="Bootstrap\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Bootstrap\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Bootstrap\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Bootstrap\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Bootstrap\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Bootstrap\font-awesome\less\core.less" />
+    <Content Include="Bootstrap\font-awesome\less\fixed-width.less" />
+    <Content Include="Bootstrap\font-awesome\less\font-awesome.less" />
+    <Content Include="Bootstrap\font-awesome\less\icons.less" />
+    <Content Include="Bootstrap\font-awesome\less\larger.less" />
+    <Content Include="Bootstrap\font-awesome\less\list.less" />
+    <Content Include="Bootstrap\font-awesome\less\mixins.less" />
+    <Content Include="Bootstrap\font-awesome\less\path.less" />
+    <Content Include="Bootstrap\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Bootstrap\font-awesome\less\spinning.less" />
+    <Content Include="Bootstrap\font-awesome\less\stacked.less" />
+    <Content Include="Bootstrap\font-awesome\less\variables.less" />
+    <Content Include="Bootstrap\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Bootstrap\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Bootstrap\font-awesome\scss\_core.scss" />
+    <Content Include="Bootstrap\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Bootstrap\font-awesome\scss\_icons.scss" />
+    <Content Include="Bootstrap\font-awesome\scss\_larger.scss" />
+    <Content Include="Bootstrap\font-awesome\scss\_list.scss" />
+    <Content Include="Bootstrap\font-awesome\scss\_mixins.scss" />
+    <Content Include="Bootstrap\font-awesome\scss\_path.scss" />
+    <Content Include="Bootstrap\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Bootstrap\font-awesome\scss\_spinning.scss" />
+    <Content Include="Bootstrap\font-awesome\scss\_stacked.scss" />
+    <Content Include="Bootstrap\font-awesome\scss\_variables.scss" />
+    <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="MasterPages\Site1.Master" />
+    <Content Include="App_Data\qlumi.p12" />
+    <Content Include="App_Data\q.pem" />
+    <Content Include="App_Data\Dev.p12" />
+    <Content Include="App_Data\Dist.p12" />
+    <Content Include="MasterPages\VendorDashboard.Master" />
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="MasterPages\AdDashboard.Master" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="job_scheduling_data_2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\irfan.pubxml" />
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\boxer.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery-1.8.3.js" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\jquery-ui-1.18.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery-ui-1.9.2.js" />
+    <Content Include="Scripts\map\bootstrap.min.js" />
+    <Content Include="Scripts\map\gmaps.js" />
+    <Content Include="Scripts\map\jquery.min.js" />
+    <Content Include="Scripts\map\platform.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Styles\css\style.css" />
+    <Content Include="Styles\MainStyles.css" />
+    <Content Include="Styles\MasterPage.css" />
+    <Content Include="Styles\MasterSheet.css" />
+    <Content Include="UploadedFiles\AdImages\default.png" />
+    <Content Include="Views\AdDashboard.aspx" />
+    <Content Include="Views\AdLogin.aspx" />
+    <Content Include="Views\AdProfile.aspx" />
+    <Content Include="Views\AdvertiserRegistration.aspx" />
+    <Content Include="Views\CreateAd.aspx" />
+    <Content Include="Views\MyAccount.aspx" />
+    <Content Include="Views\MyBilling.aspx" />
+    <Content Include="Views\Response.aspx" />
+    <Content Include="Views\UpdatePassword.aspx" />
+    <Content Include="Views\VendorCustomProfile.aspx" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\AppCategory.aspx" />
+    <Content Include="Views\ExWordController.aspx" />
+    <Content Include="Views\ForgotPassword.aspx" />
+    <Content Include="Views\GCMNotifications.aspx" />
+    <Content Include="Views\PushNotification.aspx" />
+    <Content Include="Views\Home.aspx" />
+    <Content Include="Views\Interests.aspx" />
+    <Content Include="Views\Login.aspx" />
+    <Content Include="Views\ManageCategories.aspx" />
+    <Content Include="Views\QlumiUsers.aspx" />
+    <Content Include="Views\Qlumi_v3.html" />
+    <Content Include="Views\SubCategory.aspx" />
+    <Content Include="Views\VendorDashboard.aspx" />
+    <Content Include="Views\VendorPortal.aspx" />
+    <Content Include="Views\VendorLogin.aspx" />
+    <Content Include="Views\VendorRegistration.aspx" />
+    <Content Include="Views\Vendors.aspx" />
+    <Content Include="Views\VendorUsers.aspx" />
+    <Content Include="Views\WordsContoller.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Bundle.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\map\js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Styles\scss\style.scss" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdInfo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="admin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdProgress.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppCategory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\oAuth.cs" />
+    <Compile Include="App_Data\oAuthTwitter.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\OpenAuthProviders.ascx.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\OpenAuthProviders.ascx.designer.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\RegisterExternalLogin.aspx.cs">
+      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
+      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BidType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BillingInfo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="category.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChatHistory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AdvertiserController.cs" />
+    <Compile Include="Controllers\BillingController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\api\GetAddsController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\VendorDashboardController.cs" />
+    <Compile Include="crawler.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\CustomQuery.cs" />
+    <Compile Include="DataAccess\DBConnectionManager.cs" />
+    <Compile Include="DataCore\Managers\AddManager.cs" />
+    <Compile Include="DataCore\Managers\BusinessCoreController.cs" />
+    <Compile Include="DataCore\Managers\AdminManager.cs" />
+    <Compile Include="DataCore\Managers\AdvertiserManager.cs" />
+    <Compile Include="DataCore\Managers\NotesManager.cs" />
+    <Compile Include="DataCore\Managers\UsersManager.cs" />
+    <Compile Include="DataCore\Managers\VendorDashboardManager.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="excludedWord.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="gpsNote.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="includedWord.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\AdDashboard.Master.cs">
+      <DependentUpon>AdDashboard.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\AdDashboard.Master.designer.cs">
+      <DependentUpon>AdDashboard.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\VendorDashboard.Master.cs">
+      <DependentUpon>VendorDashboard.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\VendorDashboard.Master.designer.cs">
+      <DependentUpon>VendorDashboard.Master</DependentUpon>
+    </Compile>
+    <Compile Include="meetingNote.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="messageCount.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BillingContainer.cs" />
+    <Compile Include="Models\BillingHistory-Temp.cs" />
+    <Compile Include="Models\GetAddsForUser.cs" />
+    <Compile Include="Models\GetAddsResponseModel.cs" />
+    <Compile Include="Models\PayPal\BaseSamplePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Models\PayPal\Common.cs" />
+    <Compile Include="Models\PayPal\Configuration.cs" />
+    <Compile Include="Models\PayPal\RequestFlow.cs" />
+    <Compile Include="Models\PayPal\RequestFlowItem.cs" />
+    <Compile Include="Models\UpdatePassword.cs" />
+    <Compile Include="ProfileColor.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataCore\Managers\JobManager.cs" />
+    <Compile Include="Scheduler\SecretJob.cs" />
+    <Compile Include="SettingProfile.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubCategory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserContact.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserGpsNote.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterest.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="userLocation.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\AuthorizationHandler.cs" />
+    <Compile Include="Utilities\EncryptPwd.cs" />
+    <Compile Include="Vendor.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VendorInterest.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VendorNote.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VendorProfile.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdDashboard.aspx.cs">
+      <DependentUpon>AdDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AdDashboard.aspx.designer.cs">
+      <DependentUpon>AdDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdLogin.aspx.cs">
+      <DependentUpon>AdLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AdLogin.aspx.designer.cs">
+      <DependentUpon>AdLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdProfile.aspx.cs">
+      <DependentUpon>AdProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AdProfile.aspx.designer.cs">
+      <DependentUpon>AdProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdvertiserRegistration.aspx.cs">
+      <DependentUpon>AdvertiserRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AdvertiserRegistration.aspx.designer.cs">
+      <DependentUpon>AdvertiserRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaseSamplePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\CreateAd.aspx.cs">
+      <DependentUpon>CreateAd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\CreateAd.aspx.designer.cs">
+      <DependentUpon>CreateAd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyAccount.aspx.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MyAccount.aspx.designer.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyBilling.aspx.cs">
+      <DependentUpon>MyBilling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MyBilling.aspx.designer.cs">
+      <DependentUpon>MyBilling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Response.aspx.cs">
+      <DependentUpon>Response.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Response.aspx.designer.cs">
+      <DependentUpon>Response.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdatePassword.aspx.cs">
+      <DependentUpon>UpdatePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdatePassword.aspx.designer.cs">
+      <DependentUpon>UpdatePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VendorCustomProfile.aspx.cs">
+      <DependentUpon>VendorCustomProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\VendorCustomProfile.aspx.designer.cs">
+      <DependentUpon>VendorCustomProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AppCategory.aspx.cs">
+      <DependentUpon>AppCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AppCategory.aspx.designer.cs">
+      <DependentUpon>AppCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ExWordController.aspx.cs">
+      <DependentUpon>ExWordController.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ExWordController.aspx.designer.cs">
+      <DependentUpon>ExWordController.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GCMNotifications.aspx.cs">
+      <DependentUpon>GCMNotifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\GCMNotifications.aspx.designer.cs">
+      <DependentUpon>GCMNotifications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PushNotification.aspx.cs">
+      <DependentUpon>PushNotification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PushNotification.aspx.designer.cs">
+      <DependentUpon>PushNotification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interests.aspx.cs">
+      <DependentUpon>Interests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Interests.aspx.designer.cs">
+      <DependentUpon>Interests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageCategories.aspx.cs">
+      <DependentUpon>ManageCategories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ManageCategories.aspx.designer.cs">
+      <DependentUpon>ManageCategories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QlumiUsers.aspx.cs">
+      <DependentUpon>QlumiUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\QlumiUsers.aspx.designer.cs">
+      <DependentUpon>QlumiUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubCategory.aspx.cs">
+      <DependentUpon>SubCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SubCategory.aspx.designer.cs">
+      <DependentUpon>SubCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VendorDashboard.aspx.cs">
+      <DependentUpon>VendorDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\VendorDashboard.aspx.designer.cs">
+      <DependentUpon>VendorDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VendorPortal.aspx.cs">
+      <DependentUpon>VendorPortal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\VendorPortal.aspx.designer.cs">
+      <DependentUpon>VendorPortal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VendorLogin.aspx.cs">
+      <DependentUpon>VendorLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\VendorLogin.aspx.designer.cs">
+      <DependentUpon>VendorLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VendorRegistration.aspx.cs">
+      <DependentUpon>VendorRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\VendorRegistration.aspx.designer.cs">
+      <DependentUpon>VendorRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Vendors.aspx.cs">
+      <DependentUpon>Vendors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Vendors.aspx.designer.cs">
+      <DependentUpon>Vendors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VendorUsers.aspx.cs">
+      <DependentUpon>VendorUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\VendorUsers.aspx.designer.cs">
+      <DependentUpon>VendorUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WordsContoller.aspx.cs">
+      <DependentUpon>WordsContoller.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\WordsContoller.aspx.designer.cs">
+      <DependentUpon>WordsContoller.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UploadedFiles\AdVideos\" />
+    <Folder Include="Views\Billing\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61950/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
