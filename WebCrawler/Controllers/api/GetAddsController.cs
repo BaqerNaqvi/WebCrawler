@@ -12,9 +12,10 @@ namespace WebCrawler.Controllers.api
         {
             var addmanager = new AddManager();
             var adds= addmanager.GetAdss(new GetAddsForUser {location_lat = lat, location_lng = lng, user_id = uid});
-            JavaScriptSerializer js = new JavaScriptSerializer();
-            return new GetAddsResponseModel { Status = "OK", Count = adds.Count, Adds = adds };
-           // return js.Serialize(new GetAddsResponseModel {Status = "OK", Count = adds.Count, Adds = adds});
+            return new GetAddsResponseModel {Status = "OK", Count = adds.Count, Ads = adds};
+            //JavaScriptSerializer js = new JavaScriptSerializer();
+            // return new GetAddsResponseModel { };
+            //  return js.Serialize(new GetAddsResponseModel {Status = "OK", Count = adds.Count, Ads = adds});
         }
 
         // GET api/<controller>/5

@@ -22,7 +22,7 @@
 
         var xhttp = new XMLHttpRequest();
         var coordInfo;
-        var mapInfo, addressInfo="";
+        var mapInfo, addressInfo="", place_id="";
         var map;
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
@@ -151,28 +151,15 @@
                       if (results[0]) {
                           //document.getElementById("address").value = results[0].formatted_address;
                           addressInfo = results[0].formatted_address;
-                          $.ajax({
-                              type: 'GET',
-                              url: "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJrTLr-GyuEmsRBfy61i59si0&key=AIzaSyC67qOLCwRi1_6Z8g1zKA6OQkJekYIBDz8&",
-                              async: false,
-                          jsonpCallback: 'jsonCallback',
-                          contentType: "application/json",
-                          dataType: 'jsonp',
-                          success: function (data) {
-                              var gg = "kjk";
-                          },
-                          error: function (e) {
-                              console.log(e.message);
-                          }
-                      });
+                          place_id = results[0].place_id;
 
                       }
                       else {
-                          ///document.getElementById("address").value = "No results";
+                          document.getElementById("address").value = "No results";
                       }
                   }
                   else {
-                      //document.getElementById("address").value = status;
+                     document.getElementById("address").value = status;
                   }
               });
 
@@ -464,10 +451,10 @@
 
             if(postBack)
             {
-                CreateAd(adType, bidTypeOption, dailyBudget, adInterest, adCustomInterest, interestCategory, spFacts, cWebUrl, cPhone, isCustom, adTitle, lati, longi,locationName, selctedCost);
+                CreateAd(place_id, adType, bidTypeOption, dailyBudget, adInterest, adCustomInterest, interestCategory, spFacts, cWebUrl, cPhone, isCustom, adTitle, lati, longi,locationName, selctedCost);
             }
         }
-        function CreateAd(adType, bidTypeOption, dailyBudget, adInterest, adCustomInterest, interestCategory, spFacts, cWebUrl, cPhone, isCustom, adTitle, lati, longi, locationName, selctedCost) {
+        function CreateAd(placeId, adType, bidTypeOption, dailyBudget, adInterest, adCustomInterest, interestCategory, spFacts, cWebUrl, cPhone, isCustom, adTitle, lati, longi, locationName, selctedCost) {
 
 
 
@@ -495,7 +482,7 @@
                     adTitle: adTitle,
                     lati: lati,
                     longi: longi,
-                    locationName: locationName,
+                    locationName: locationName+"|"+placeId,
                     costPerAction: selctedCost,
                     costPerConversion: selctedCost
 

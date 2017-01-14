@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using Utilities;
 using System.Configuration;
 using MySql.Data.MySqlClient;
+using WebCrawler.Models;
 
 
 namespace WebCrawler.DataCore.Managers
@@ -800,6 +801,28 @@ namespace WebCrawler.DataCore.Managers
                 locationName = row["locationName"].ToString(),
             };
             return ex;
+        }
+
+
+        public AdInfoPlaceInfoObj mapAdInfoForApi(DataRow row)
+        {
+            var ex = new AdInfo
+            {
+                Id = int.Parse(row["Id"].ToString()),
+                vendorId = int.Parse(row["vendorId"].ToString()),
+                customInterest = row["customInterest"].ToString(),
+                mapVideo = row["mapVideo"].ToString(),
+                sponorLogo = row["sponorLogo"].ToString(),
+                sponsorWebsite = row["sponsorWebsite"].ToString(),
+                createdAt = Convert.ToDateTime(row["createdAt"].ToString()),
+                adTitle = row["adTitle"].ToString(),
+                lati = row["lati"].ToString(),
+                longi = row["longi"].ToString(),
+                locationName = row["locationName"].ToString(),
+                adTypeId = int.Parse(row["adTypeId"].ToString())
+            };
+            var placeInfo = row["sponsorFacts"].ToString();
+            return new AdInfoPlaceInfoObj {AdInfo = ex, PlaceInfo = placeInfo};
         }
     }
 }

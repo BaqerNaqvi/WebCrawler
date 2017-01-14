@@ -1341,6 +1341,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\AdInfoPlaceInfoObj.cs" />
     <Compile Include="Models\BillingContainer.cs" />
     <Compile Include="Models\BillingHistory-Temp.cs" />
     <Compile Include="Models\GetAddsForUser.cs" />

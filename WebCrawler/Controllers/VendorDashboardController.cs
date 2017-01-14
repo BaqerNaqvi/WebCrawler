@@ -46,8 +46,16 @@ namespace WebCrawler.Controllers
             {
                 results = data.ToString(Formatting.None);
                 info = new JavaScriptSerializer().Deserialize<AdInfo>(results);
+                var attrs = info.locationName.Split('|');
+                info.locationName = attrs[0];
+                var placeInf = GetPlaceInfo(attrs[1]);
+                info.sponsorFacts = placeInf;
                 adId = controller.CreateVendorAd(info);
+
+
                 var addmanager = new AddManager();
+
+                // To GReySQL
                 addmanager.InsertAdInfo(adId, info.lati, info.longi, info.locationName);
 
             }
@@ -70,7 +78,14 @@ namespace WebCrawler.Controllers
             return response;
         
         }
-
+        public string GetPlaceInfo(string placeId)
+        {
+            using (var client = new HttpClient())
+            {
+                var response = client.GetStringAsync(string.Format("https://maps.googleapis.com/maps/api/place/details/json?placeid=" + placeId + "&key=AIzaSyC67qOLCwRi1_6Z8g1zKA6OQkJekYIBDz8&"));
+                return response.Result;
+            }
+        }
 
         [HttpPost]
         public HttpResponseMessage GetAdByVendorId([FromBody]JObject data)

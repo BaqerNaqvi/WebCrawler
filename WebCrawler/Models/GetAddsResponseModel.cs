@@ -12,6 +12,6 @@ namespace WebCrawler.Models
 
         public string Status { get; set; }
 
-        public List<AdInfo> Adds { get; set; }
+        public List<AdInfoPlaceInfoObj> Ads { get; set; }
     }
 }

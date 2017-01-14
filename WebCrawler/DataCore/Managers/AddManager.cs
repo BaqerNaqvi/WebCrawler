@@ -14,10 +14,10 @@ namespace WebCrawler.DataCore.Managers
 
         #endregion
         #region Subs
-        public List<AdInfo> GetAdss(GetAddsForUser requestModel)
+        public List<AdInfoPlaceInfoObj> GetAdss(GetAddsForUser requestModel)
         {
             var addIds = new List<string>();
-            var foundAdds = new List<AdInfo>();
+            var foundAdds = new List<AdInfoPlaceInfoObj>();
             conn.Open();
             var query = "SELECT adid FROM adlocation WHERE" +
                             " ST_DWithin(location::geography,  ST_GeomFromText('POINT("+requestModel.location_lng+" "
@@ -51,7 +51,7 @@ namespace WebCrawler.DataCore.Managers
                 DataTable dt = cq.ExecuteSQLQuery(query);
                 if (dt.Rows.Count > 0)
                 {
-                    foundAdds.AddRange(from DataRow row in dt.Rows select adminManager.mapAdInfo(row));
+                    foundAdds.AddRange(from DataRow row in dt.Rows select adminManager.mapAdInfoForApi(row));
                 }
             }
             return foundAdds;
