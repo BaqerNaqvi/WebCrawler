@@ -8,12 +8,13 @@ namespace WebCrawler.Controllers.api
     public class GetAddsController : ApiController
     {
         // GET api/<controller>
-        public string Get(string uid, string lat, string lng)
+        public GetAddsResponseModel Get(string uid, string lat, string lng)
         {
             var addmanager = new AddManager();
             var adds= addmanager.GetAdss(new GetAddsForUser {location_lat = lat, location_lng = lng, user_id = uid});
             JavaScriptSerializer js = new JavaScriptSerializer();
-            return js.Serialize(new GetAddsResponseModel {Status = "OK", Count = adds.Count, Adds = adds});
+            return new GetAddsResponseModel { Status = "OK", Count = adds.Count, Adds = adds };
+           // return js.Serialize(new GetAddsResponseModel {Status = "OK", Count = adds.Count, Adds = adds});
         }
 
         // GET api/<controller>/5

@@ -40,11 +40,7 @@ namespace WebCrawler
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            RouteTable.Routes.MapHttpRoute(
-                name: "Default",
-                routeTemplate: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = RouteParameter.Optional }
-            );
+          
 
 
             var appXmlType = GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
