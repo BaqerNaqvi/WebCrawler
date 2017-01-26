@@ -470,7 +470,7 @@ namespace WebCrawler.DataCore.Managers
         {
             CustomQuery cq = new CustomQuery();
             List<AppCategory> catList = new List<AppCategory>();
-            string query = "select * from AppCategory";
+            string query = "select * from AppCategory where categoryName <> 'temp'";
             DataTable dt = cq.ExecuteSQLQuery(query);
             if (dt.Rows.Count > 0)
             {

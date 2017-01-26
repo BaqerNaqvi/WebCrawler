@@ -606,9 +606,9 @@ namespace WebCrawler.DataCore
             return new VendorDashboardManager().UpdateAdImage(image, adId);
         }
 
-        public AdInfo UpdateAdVideo(string image, string adId)
+        public AdInfo UpdateAdVideo(string videoUrl, string adId)
         {
-            return new VendorDashboardManager().UpdateAdVideo(image, adId);
+            return new VendorDashboardManager().UpdateAdVideo(videoUrl, adId);
         }
 
         public DataTable GetAllAdTypes()

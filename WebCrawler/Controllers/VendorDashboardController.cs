@@ -20,6 +20,9 @@ using WebCrawler.DataCore.Managers;
 using PushSharp.Apple;
 using MySql.Data.MySqlClient;
 using System.Net.Mail;
+using WebCrawler.Models;
+using System.Device;
+using System.Device.Location;
 
 namespace WebCrawler.Controllers
 {
@@ -48,9 +51,13 @@ namespace WebCrawler.Controllers
                 info = new JavaScriptSerializer().Deserialize<AdInfo>(results);
                 var attrs = info.locationName.Split('|');
                 info.locationName = attrs[0];
-                var placeInf = GetPlaceInfo(attrs[1]);
-                info.sponsorFacts = placeInf;
-                adId = controller.CreateVendorAd(info);
+                var placeInfo = GetPlaceInfo(info.lati, info.longi);
+
+               
+
+                //var placeInf = GetPlaceInfo(attrs[1], info.lati, info.longi);
+                 info.sponsorFacts = placeInfo;
+                  adId = controller.CreateVendorAd(info);
 
 
                 var addmanager = new AddManager();
@@ -78,13 +85,38 @@ namespace WebCrawler.Controllers
             return response;
         
         }
-        public string GetPlaceInfo(string placeId)
+        public string GetPlaceInfo(string orgLati, string orgLongi)
         {
-            using (var client = new HttpClient())
-            {
-                var response = client.GetStringAsync(string.Format("https://maps.googleapis.com/maps/api/place/details/json?placeid=" + placeId + "&key=AIzaSyC67qOLCwRi1_6Z8g1zKA6OQkJekYIBDz8&"));
-                return response.Result;
+            var adCord = new GeoCoordinate(Convert.ToDouble(orgLati), Convert.ToDouble(orgLongi));
+            using (var client = new WebClient())
+            {               
+                var response = client.DownloadString(string.Format("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+orgLati+","+orgLongi+"&radius=100&key=AIzaSyC67qOLCwRi1_6Z8g1zKA6OQkJekYIBDz8"));
+                var data=JsonConvert.DeserializeObject<GoogleData>(response);
+                foreach (var obj in data.results)
+                {
+                    var tempMap = obj.geometry.location;
+                    var newCoord = new GeoCoordinate(tempMap.lat, tempMap.lng);
+                    var distance= adCord.GetDistanceTo(newCoord);
+                    obj.distance = (int?) distance;
+                }
+                var newResult = data.results.OrderBy(obj => obj.distance);
+                var firstObj = newResult.FirstOrDefault();
+                if (firstObj != null)
+                {
+                    using (var newClient = new HttpClient())
+                    {
+                        var uri = firstObj.place_id;
+                        var response1 = newClient.GetStringAsync(string.Format("https://maps.googleapis.com/maps/api/place/details/json?placeid=" + uri + "&key=AIzaSyC67qOLCwRi1_6Z8g1zKA6OQkJekYIBDz8&"));
+                        var placeInfo = response1.Result;
+                        int pFrom = placeInfo.IndexOf("adr_address");
+                        int pTo = placeInfo.IndexOf("formatted_address");
+                        var result = placeInfo.Substring(pFrom - 1, pTo - pFrom - 3);
+                        var refinedInfo = placeInfo.Remove(pFrom, result.Length + 3);
+                        return refinedInfo;
+                    }                    
+                }
             }
+            return null;
         }
 
         [HttpPost]
@@ -427,40 +459,35 @@ namespace WebCrawler.Controllers
         [HttpPost]
         public void UploadFile()
         {
-            if (HttpContext.Current.Request.Files.AllKeys.Any())
-            {
+           // if (HttpContext.Current.Request.Files.AllKeys.Any())
+         //   {
                 // Get the uploaded image from the Files collection
                 var httpPostedFile = HttpContext.Current.Request.Files["UploadedImage"];
 
-                if (httpPostedFile != null)
-                {
+           //     if (httpPostedFile != null)
+           //     {
                     // Validate the uploaded image(optional)
 
                     // Get the complete file path
                     string objId = HttpContext.Current.Request.Params.GetValues("adId")[0];
-                    string adFlag = HttpContext.Current.Request.Params.GetValues("adFlag")[0];
-                    string fileName = objId + "" + httpPostedFile.FileName;
+                    string videoUrl = HttpContext.Current.Request.Params.GetValues("videoUrl")[0];
+                    string isVideo = HttpContext.Current.Request.Params.GetValues("isVideo")[0];
+                    string isImg = HttpContext.Current.Request.Params.GetValues("isImg")[0];
 
-                    if (bool.Parse(adFlag))
+                    if (bool.Parse(isVideo))
                     {
-                        var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/UploadedFiles/AdVideos"), fileName);
-                        controller.UpdateAdVideo(fileName, objId);
-                        httpPostedFile.SaveAs(fileSavePath);
+                        controller.UpdateAdVideo(videoUrl, objId);
                     }
-                    else
+
+                    if (bool.Parse(isImg))
                     {
-                        var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/UploadedFiles/AdImages"), fileName);
+                      string fileName = objId + "" + httpPostedFile.FileName;
+                      var fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/UploadedFiles/AdImages"), fileName);
                         controller.UpdateAdImage(fileName, objId);
                         httpPostedFile.SaveAs(fileSavePath);
                     }
-                    
-
-
-                   
-
-
-                }
-            }
+            //    }
+          //  }
         }
 
         [HttpPost]

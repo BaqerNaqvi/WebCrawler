@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace WebCrawler.Models
 {
-    public class AdInfoPlaceInfoObj
+    public class AdInfoContainer
     {
-        public AdInfo AdInfo { get; set; }
-        public string PlaceInfo { get; set; }
+        public AdInfoForApi ad_info { get; set; }
+        public string place_info { get; set; }
     }
 }

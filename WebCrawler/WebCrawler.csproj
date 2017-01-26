@@ -124,6 +124,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Device" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
@@ -1262,7 +1263,7 @@
     <Compile Include="Controllers\AdvertiserController.cs" />
     <Compile Include="Controllers\BillingController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
-    <Compile Include="Controllers\api\GetAddsController.cs" />
+    <Compile Include="Controllers\api\GetAdsController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -1341,11 +1342,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\AdInfoPlaceInfoObj.cs" />
+    <Compile Include="Models\AdInfoForApi.cs" />
+    <Compile Include="Models\AdInfoContainer.cs" />
     <Compile Include="Models\BillingContainer.cs" />
     <Compile Include="Models\BillingHistory-Temp.cs" />
-    <Compile Include="Models\GetAddsForUser.cs" />
+    <Compile Include="Models\GetAddsAPiRequestModel.cs" />
     <Compile Include="Models\GetAddsResponseModel.cs" />
+    <Compile Include="Models\googleObj.cs" />
     <Compile Include="Models\PayPal\BaseSamplePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

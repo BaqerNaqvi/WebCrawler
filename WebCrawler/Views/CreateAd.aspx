@@ -18,7 +18,8 @@
         var sponsorFlag = false;
         var couponFlag = false;
         var isCustom = 1;
-        var adFlag = false;
+        var isVideo = false;
+        var isImg = false;
 
         var xhttp = new XMLHttpRequest();
         var coordInfo;
@@ -36,7 +37,7 @@
 
 
                var dfsdf= getAddress(event.latLng);
-
+                debugger;
                 coordInfo = event.latLng;
                 mapInfo = map;
 
@@ -79,6 +80,10 @@
 
 
         }
+
+
+       
+
         function initAutocomplete(MyMap) {
             var map = MyMap;
 
@@ -152,7 +157,9 @@
                           //document.getElementById("address").value = results[0].formatted_address;
                           addressInfo = results[0].formatted_address;
                           place_id = results[0].place_id;
-
+                          var sf = latLng;
+                          debugger;
+                          console.log("Place id:" + results[0].place_id);
                       }
                       else {
                           document.getElementById("address").value = "No results";
@@ -190,6 +197,12 @@
             LoadAdTypes();
             LoadBidTypes();
 
+            $('#pac-input').keydown(function (e) {
+                if (e.which === 13) {
+                     return false;
+                }
+            });
+
             $("#adTypeDdl").change(function (e) {
 
                 if (e.target.selectedOptions[0].label == "Sponsor")
@@ -206,23 +219,50 @@
                     sponsorFlag = false;
                     couponFlag = false;
                 }
-                
+
+                if (e.target.selectedOptions[0].label == "Coupon") {
+                    $("#website-url-text").text("Coupon URL:");
+                } else {
+                    $("#website-url-text").text("Website URL:");
+                }
                 
             });
 
 
-            $('input:radio[name=sponsorType]').change(function () {
+            //$('input:radio[name=sponsorType]').change(function () {
                 
-                if (this.value == 'spVideoBtn') {
-                    document.getElementById("spImage").style.display = "none";
-                    document.getElementById("spVideo").style.display = "block";
-                    adFlag = true;
+            //    if (this.value == 'spVideoBtn') {
+            //        document.getElementById("spImage").style.display = "none";
+            //        document.getElementById("spVideo").style.display = "block";
+            //        adFlag = true;
+            //    }
+            //    else {
+            //        document.getElementById("spImage").style.display = "block";
+            //        document.getElementById("spVideo").style.display = "none";
+            //        adFlag = false;
+            //    }
+            //});
+
+            $('#img-checkbox').change(function () {
+                isVideo = false;
+                $("#video-block").css('display', 'none');
+
+                if ($(this).is(":checked")) {
+                    isImg = true;
+                    $("#img-block").css('display', 'block');
+                } else {
+                    isImg = false;
+                    $("#img-block").css('display', 'none');
                 }
-                else {
-                    document.getElementById("spImage").style.display = "block";
-                    document.getElementById("spVideo").style.display = "none";
-                    adFlag = false;
-                }
+            });
+            $('#video-checkbox').change(function () {
+                isImg = false;
+                $("#img-block").css('display', 'none');
+
+                if ($(this).is(":checked")) {
+                    isVideo = true;
+                    $("#video-block").css('display', 'block');
+                } 
             });
 
 
@@ -240,6 +280,7 @@
                 if (the_input_len < 0) {
                     alert('Sorry, the text is too long. The maximum character length is 155.');
                     $('#spFacts').val($('#spFacts').val().slice(0, 155));
+                    return false;
                 };
             });
         });
@@ -271,6 +312,7 @@
                 statusCode: {
                     404: function () {
                         alert('Failed');
+                        return false;
                     }
                 }
             });
@@ -288,7 +330,7 @@
                 },
                 success: function (vendorInfo) {
 
-                    document.getElementById('adInterest').innerHTML = "<option value=\"1\">Select Interest</option>";
+                    document.getElementById('adInterest').innerHTML = "<option value=\"70\">Select Interest</option>";
                     //debugger;
                     for (var i = 0; i < vendorInfo.length; i++) {
 
@@ -299,6 +341,7 @@
                 statusCode: {
                     404: function () {
                         alert('Failed');
+                        return false;
                     }
                 }
             });
@@ -327,6 +370,7 @@
                 statusCode: {
                     404: function () {
                         alert('Failed');
+                        return false;
                     }
                 }
             });
@@ -354,6 +398,7 @@
                 statusCode: {
                     404: function () {
                         alert('Failed');
+                        return false;
                     }
                 }
             });
@@ -390,6 +435,7 @@
             if (addressInfo == "" || addressInfo == undefined) {
                 alert("Select Ad-Location");
                 postBack = false;
+                return false;
             }
             var locationName = addressInfo;
 
@@ -405,6 +451,7 @@
             if (selctedCost === "" || selctedCost === undefined) {
                 alert("Please Select Bid Cost!");
                 postBack = false;
+                return false;
             }
 
             if (bidTypeOption === "1") {
@@ -417,10 +464,12 @@
             if (cWebUrl == "") {
                 alert("Please enter web Url");
                 postBack = false;
+                return false;
             }
             if (cPhone == "") {
                 alert("Please enter Phone");
                 postBack = false;
+                return false;
             }
 
 
@@ -430,6 +479,7 @@
             if (dailyBudget == "") {
                 alert("Please enter daily budget");
                 postBack = false;
+                return false;
             }
             if (adCustomInterest == "") {
                 adCustomInterest = interestCategory;
@@ -445,14 +495,26 @@
 
                     spFacts = ""
                 }
+                var files = $("#photoUrl").get(0).files;
+                if ((isImg) && files.length === 0) {
+                    alert("Please upload Photo.");
+                    return false;
+                }
+                var urlVid=$("#video-url-tb").val();
+                if ((isVideo) && urlVid==="") {
+                    alert("Please provide Video URL.");
+                    return false;
+                }
+
             }
 
-            
+          
 
             if(postBack)
             {
                 CreateAd(place_id, adType, bidTypeOption, dailyBudget, adInterest, adCustomInterest, interestCategory, spFacts, cWebUrl, cPhone, isCustom, adTitle, lati, longi,locationName, selctedCost);
             }
+            return false;
         }
         function CreateAd(placeId, adType, bidTypeOption, dailyBudget, adInterest, adCustomInterest, interestCategory, spFacts, cWebUrl, cPhone, isCustom, adTitle, lati, longi, locationName, selctedCost) {
 
@@ -472,7 +534,7 @@
                     interestId: adInterest,
                     categoryId: interestCategory,
                     sponsorFacts: spFacts,
-                    sponsorWebsite: '',
+                    sponsorWebsite: cWebUrl,
                     sponsorPhone: cPhone,
                     sponorLogo: '',
                     isCustom: isCustom,
@@ -491,8 +553,8 @@
 
                     //alert("done");
                     //debugger;
-                    if (sponsorFlag) {
-                        UploadFile(data)
+                    if (sponsorFlag && (isImg || isVideo)) {
+                        UploadFile(data);
                     }
                     else {
                         window.location.href = "AdDashboard.aspx";
@@ -502,6 +564,7 @@
                 statusCode: {
                     404: function () {
                         alert('Failed');
+                        return false;
                     }
                 }
             });
@@ -510,30 +573,15 @@
         function UploadFile(adId) {
 
             var data = new FormData();
-            var files;
-            debugger;
-            if (adFlag) {
-                files = $("#videoUrl").get(0).files;
-            }
-            else {
-                
-                files = $("#photoUrl").get(0).files;
-            }
-            
-
-            if (files.length > 0) {
-                data.append("UploadedImage", files[0]);
-            }
-            else {
-
-                alert("Please upload Photo/Video");
-
-            }
+            var files = $("#photoUrl").get(0).files;
+            data.append("UploadedImage", files[0]);
             var uniquekey = {
                 adId: adId
             };
             data.append("adId", adId);
-            data.append("adFlag", adFlag);
+            data.append("videoUrl", $("#video-url-tb").val());
+            data.append("isImg", isImg);
+            data.append("isVideo", isVideo);
             // Make Ajax request with the contentType = false, and procesDate = false
             var ajaxRequest = $.ajax({
                 type: "POST",
@@ -544,7 +592,7 @@
             });
 
             ajaxRequest.done(function (xhr, textStatus) {
-                window.location.href = "VendorDashboard.aspx";
+                window.location.href = "AdDashboard.aspx";
 
             });
         }
@@ -697,7 +745,7 @@
                     </div>
                     <div class="row">
                         <div class="controll-group col-xs-12 col-sm-12 col-md-6">
-                            <label for="type">Website URl</label>
+                            <label for="type" id="website-url-text">Website URl</label>
 			    	        <input type="text" name="type" id="cWebUrl" class="form-control input-sm" />
 			            </div>
 
@@ -787,16 +835,6 @@
                 </div>
             </div>
         </div>
-        
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                 <label for="interestCategory">Select Ad-Location</label>
-                  <input id="pac-input" class="controls" type="text" placeholder="Search Box" />
-                  <div id="map"></div>
-            </div>
-        </div>
-
-
         <div class="row" id="sponsorSection">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="box box1 box-primary">
@@ -811,41 +849,31 @@
 			        </div>
                     
                     <div class="controll-group col-xs-12 col-sm-12 col-md-6">
-                        <br/>
-                        <input type="radio" id="spType" name='sponsorType' value="spVideoBtn"  />
-                        <span>Video of map location</span>
-                        <br/>
-                        <input type="radio" name='sponsorType' value="spImageBtn" checked="checked" />
+                                                <br/>
+
+                         <input type="radio" name='sponsorType' id="img-checkbox" value="spImageBtn" />
                         <span>Photo of map location</span>
 
                         <br/>
-                        <div id="spImage">
+                        <input type="radio" id="video-checkbox" name='sponsorType' value="spVideoBtn" />
+                        <span>Video of map location</span>
+                        <br/>
+                       
+                        <div  class="col-lg-6" id="img-block"  >
                             <br/>
-                            <label for="img">Upload Sponsor Image</label>
-			    	        <input type="file" required=""  value="" name="name1" id="photoUrl" class="form-control input-sm" />
+                            <label for="img">Upload Image</label>
+			    	        <input type="file" required=""  value=""  id="photoUrl" class="form-control input-sm" />
                         </div>
-                        
-                        <div id="spVideo">
+                        <div  class="col-lg-6" id="video-block" style="display: none">
                             <br/>
-                            <label for="img">Upload Sponsor Video</label>
-			    	        <input type="file" required=""  value="" name="name" id="videoUrl" class="form-control input-sm" />
-                        </div>
-                        
-
+                            <label for="img">Video URL</label>
+			    	        <input type="text" id="video-url-tb"  class="form-control input-sm" />
+                        </div>                        
                     </div>
-
-
-
-
-                </div>
-                
+                </div>            
             </div>
-        </div>
-
-
-
-
-        
+            </div>
+        </div>        
         <div class="row" id="couponSection">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="box box1 box-primary">
@@ -858,13 +886,23 @@
                 
             </div>
         </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                 <label for="interestCategory">Select Ad-Location</label>
+                  <input id="pac-input" class="controls" type="text" placeholder="Search Box" />
+                  <div id="map"></div>
+            </div>
+          </div>
+
+
+        
 
         <div class="row">
             <div class="controll-group">
                 
                 <button class="btn btn-default" style="margin-left: 12px;"  onclick="cancelAd()">Cancel</button>
 
-                <button class="btn btn-primary" id="adBtn" onclick="ValidateAd()"> Submit Ad for reveiw</button>           
+                <button class="btn btn-primary" id="adBtn" onclick="return ValidateAd()"> Submit Ad for reveiw</button>           
             </div>
         </div>
      </div>

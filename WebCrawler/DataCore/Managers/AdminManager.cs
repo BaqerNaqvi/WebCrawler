@@ -804,25 +804,37 @@ namespace WebCrawler.DataCore.Managers
         }
 
 
-        public AdInfoPlaceInfoObj mapAdInfoForApi(DataRow row)
+        public AdInfoContainer mapAdInfoForApi(DataRow row, string baseUrl)
         {
-            var ex = new AdInfo
+            var ex = new AdInfoForApi
             {
-                Id = int.Parse(row["Id"].ToString()),
-                vendorId = int.Parse(row["vendorId"].ToString()),
-                customInterest = row["customInterest"].ToString(),
-                mapVideo = row["mapVideo"].ToString(),
-                sponorLogo = row["sponorLogo"].ToString(),
-                sponsorWebsite = row["sponsorWebsite"].ToString(),
-                createdAt = Convert.ToDateTime(row["createdAt"].ToString()),
-                adTitle = row["adTitle"].ToString(),
-                lati = row["lati"].ToString(),
-                longi = row["longi"].ToString(),
-                locationName = row["locationName"].ToString(),
-                adTypeId = int.Parse(row["adTypeId"].ToString())
+                text = row["adTitle"].ToString(),   
+                type = int.Parse(row["adTypeId"].ToString()),
+                couponUrl = row["couponUrl"].ToString(),
+                symbol_url = row["couponUrl"].ToString(),
+                advertiser_logo = row["sponorLogo"].ToString(),
+                advertiser_url = row["sponsorWebsite"].ToString(),
+                advertiser_tagline = "Best Option",
+                phone_number = row["sponsorPhone"].ToString(),
+                interestId= int.Parse(row["interestId"].ToString()),
             };
+            var img = row["mapImage"].ToString();
+            if (img != "default.png")
+            {
+                ex.landmarkType = 0;
+                var mapImage = baseUrl+"/UploadedFiles/AdImages/" +img;
+                ex.landmark_detail_url = mapImage;
+            }
+            var vid = row["mapVideo"].ToString();
+            if (vid != "default.mp4")
+            {
+                ex.landmarkType = 1;
+                ex.landmark_detail_url = vid;
+            }
+
+
             var placeInfo = row["sponsorFacts"].ToString();
-            return new AdInfoPlaceInfoObj {AdInfo = ex, PlaceInfo = placeInfo};
+            return new AdInfoContainer {ad_info = ex, place_info = placeInfo };
         }
     }
 }

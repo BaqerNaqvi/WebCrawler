@@ -22,6 +22,7 @@ namespace WebCrawler.DataCore.Managers
             CustomQuery cq = new CustomQuery();
             DataTable dt = new DataTable();
             int adId = 0;
+            info.isVisible = 1;
             string query = "insert into AdInfo (vendorId,adTypeId,bidTypeId,categoryId," +
                            " interestId,isCustom,isVisible,customInterest,dailyBudget,couponUrl," +
                            "mapVideo,mapImage,sponsorFacts,sponsorWebsite,sponsorPhone,sponorLogo,adTitle, " +
@@ -155,11 +156,11 @@ namespace WebCrawler.DataCore.Managers
             return GetAdById(adId);
         }
 
-        public AdInfo UpdateAdVideo(string image, string adId)
+        public AdInfo UpdateAdVideo(string videoUrl, string adId)
         {
             CustomQuery cq = new CustomQuery();
             AdInfo ad = new AdInfo();
-            string query = "update AdInfo set mapImage = '" + image + "' where Id = " + adId + "";
+            string query = "update AdInfo set mapVideo = '" + videoUrl + "' where Id = " + adId + "";
             cq.ExecuteNonQuery(query);
             return GetAdById(adId);
         }
