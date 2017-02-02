@@ -108,11 +108,25 @@ namespace WebCrawler.Controllers
                         var uri = firstObj.place_id;
                         var response1 = newClient.GetStringAsync(string.Format("https://maps.googleapis.com/maps/api/place/details/json?placeid=" + uri + "&key=AIzaSyC67qOLCwRi1_6Z8g1zKA6OQkJekYIBDz8&"));
                         var placeInfo = response1.Result;
+                        var newData = JsonConvert.DeserializeObject<NewRootObject>(placeInfo);
+                        if (newData.result != null)
+                        {
+                            newData.result.adr_address = "";
+                            newData.result.photos = new List<Photo> { new Photo() };
+
+                        }
+                        //    var fullTundata = JsonConvert.SerializeObject(newData.result);
+                        //   return fullTundata;
+
+
+                        // orginal
                         int pFrom = placeInfo.IndexOf("adr_address");
                         int pTo = placeInfo.IndexOf("formatted_address");
                         var result = placeInfo.Substring(pFrom - 1, pTo - pFrom - 3);
                         var refinedInfo = placeInfo.Remove(pFrom, result.Length + 3);
                         return refinedInfo;
+                        // orginal ends
+
                     }                    
                 }
             }

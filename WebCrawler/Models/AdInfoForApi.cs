@@ -24,5 +24,8 @@ namespace WebCrawler.Models
         public string landmark_detail_url { get; set; }
 
         public Nullable<int> interestId { get; set; }
+
+        public Nullable<int> isCustom { get; set; }
+        public string customInterest { get; set; }
     }
 }

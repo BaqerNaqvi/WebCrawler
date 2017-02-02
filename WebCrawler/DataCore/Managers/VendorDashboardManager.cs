@@ -23,6 +23,7 @@ namespace WebCrawler.DataCore.Managers
             DataTable dt = new DataTable();
             int adId = 0;
             info.isVisible = 1;
+            info.sponsorFacts = info.sponsorFacts.Replace("'", "");
             string query = "insert into AdInfo (vendorId,adTypeId,bidTypeId,categoryId," +
                            " interestId,isCustom,isVisible,customInterest,dailyBudget,couponUrl," +
                            "mapVideo,mapImage,sponsorFacts,sponsorWebsite,sponsorPhone,sponorLogo,adTitle, " +

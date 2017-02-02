@@ -8,25 +8,12 @@ using Newtonsoft.Json.Linq;
 using WebCrawler.DataCore.Managers;
 using WebCrawler.Models;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace WebCrawler.Controllers.api
 {
     public class GetAdsController : ApiController
     {
-        // GET api/<controller>
-        public GetAddsResponseModel Get(string uid, string lat, string lng)
-        {
-            //    var addmanager = new AddManager();
-            //  var adds= addmanager.GetAdss(new GetAddsAPiRequestModel {location_lat = lat, location_lng = lng, user_id = uid});
-            return new GetAddsResponseModel {status = "Failure", message = "Abort", ads = new List<AdInfoContainer>()};
-            //JavaScriptSerializer js = new JavaScriptSerializer();
-            // return new GetAddsResponseModel { };
-            //  return js.Serialize(new GetAddsResponseModel {Status = "OK", Count = adds.Count, Ads = adds});
-        }
-
-
-
+       
         [HttpPost]
         public HttpResponseMessage GetAd([FromBody] JObject data)
         {

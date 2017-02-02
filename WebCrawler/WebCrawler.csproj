@@ -1346,6 +1346,7 @@
     <Compile Include="Models\AdInfoContainer.cs" />
     <Compile Include="Models\BillingContainer.cs" />
     <Compile Include="Models\BillingHistory-Temp.cs" />
+    <Compile Include="Models\FinalPlaceInfo.cs" />
     <Compile Include="Models\GetAddsAPiRequestModel.cs" />
     <Compile Include="Models\GetAddsResponseModel.cs" />
     <Compile Include="Models\googleObj.cs" />

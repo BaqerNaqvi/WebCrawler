@@ -817,6 +817,8 @@ namespace WebCrawler.DataCore.Managers
                 advertiser_tagline = "Best Option",
                 phone_number = row["sponsorPhone"].ToString(),
                 interestId= int.Parse(row["interestId"].ToString()),
+                isCustom = int.Parse(row["isCustom"].ToString()),
+                customInterest = row["customInterest"].ToString()
             };
             var img = row["mapImage"].ToString();
             if (img != "default.png")
@@ -834,6 +836,10 @@ namespace WebCrawler.DataCore.Managers
 
 
             var placeInfo = row["sponsorFacts"].ToString();
+            //int pFrom = placeInfo.IndexOf("adr_address");
+            //int pTo = placeInfo.IndexOf("formatted_address");
+            //var result = placeInfo.Substring(pFrom - 1, pTo - pFrom - 3);
+            //var refinedInfo = placeInfo.Remove(pFrom, result.Length + 3);
             return new AdInfoContainer {ad_info = ex, place_info = placeInfo };
         }
     }
